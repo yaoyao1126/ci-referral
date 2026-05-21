@@ -401,7 +401,7 @@ async function loadFromSheets(manual = false) {
 // N=審核日期 O=聯繫狀態 P=致電日期 Q=諮商日期 R=手術日期
 // S=備註 T=轉介獎金 U=手術獎金 V=合計 W=轉介發放 X=手術發放
 function parseCSV(text) {
-  const rows = text.trim().split('\n').slice(2); // 跳過第1列（標題）和第2列（測試資料），從第3列開始
+  const rows = text.trim().split('\n').slice(4); // 跳過前4列（多行標題），從第5列開始讀取實際資料
   return rows.filter(r => r.trim()).map((row, i) => {
     const c = parseCSVRow(row);
     return {
