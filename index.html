@@ -17,7 +17,6 @@
   --blue:#185FA5;--blue-bg:#E6F1FB;
   --amber:#854F0B;--amber-bg:#FAEEDA;
   --red:#A32D2D;--red-bg:#FCEBEB;
-  --accent:#0F6E56;
   --radius:8px;--radius-lg:12px;
   --mono:'IBM Plex Mono',monospace;
   --sans:'IBM Plex Sans TC',sans-serif;
@@ -25,133 +24,97 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh}
 .layout{display:grid;grid-template-columns:200px 1fr;min-height:100vh}
-/* Sidebar */
 .sidebar{background:var(--text);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-.sidebar-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+.sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
 .sidebar-brand{font-size:10px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-bottom:4px}
 .sidebar-title{font-size:15px;font-weight:600;color:#fff;line-height:1.3}
-.sidebar-nav{flex:1;padding:16px 0}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;color:rgba(255,255,255,.55);cursor:pointer;transition:all .15s;border-left:2px solid transparent}
-.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
-.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-left-color:var(--green-light)}
-.nav-item i{font-size:15px;flex-shrink:0}
-.nav-section{padding:16px 20px 6px;font-size:10px;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.28)}
-.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.3)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green-light);display:inline-block;margin-right:5px;animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* Sync status */
 .sync-bar{display:flex;align-items:center;gap:6px;padding:6px 20px;font-size:11px;color:rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .sync-dot{width:5px;height:5px;border-radius:50%;background:#9FE1CB;flex-shrink:0}
 .sync-dot.err{background:#E24B4A}
 .sync-dot.loading{background:#FAC775;animation:blink .8s ease-in-out infinite}
-/* Main */
+.sidebar-nav{flex:1;padding:14px 0}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 20px;font-size:13px;color:rgba(255,255,255,.55);cursor:pointer;transition:all .15s;border-left:2px solid transparent}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-left-color:var(--green-light)}
+.nav-item i{font-size:15px;flex-shrink:0}
+.nav-section{padding:14px 20px 5px;font-size:10px;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.28)}
+.sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.3)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green-light);display:inline-block;margin-right:5px;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .main{background:var(--bg);overflow-y:auto}
-.page-header{padding:28px 32px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.page-header-left h1{font-size:22px;font-weight:600;margin-bottom:3px}
-.page-header-left p{font-size:13px;color:var(--text2)}
-.page-body{padding:24px 32px}
+.page-header{padding:24px 28px 18px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.page-header-left h1{font-size:20px;font-weight:600;margin-bottom:2px}
+.page-header-left p{font-size:12px;color:var(--text2)}
+.page-body{padding:20px 28px}
 .page{display:none}.page.active{display:block}
-/* Cards */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:16px}
-.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:14px}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .card-title{font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px}
 .card-title i{font-size:15px;color:var(--text2)}
-/* Stats */
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px}
-.stat-label{font-size:11px;color:var(--text3);font-weight:500;letter-spacing:.04em;margin-bottom:6px}
-.stat-val{font-size:26px;font-weight:600;line-height:1;margin-bottom:3px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
+.stat-label{font-size:11px;color:var(--text3);font-weight:500;letter-spacing:.04em;margin-bottom:5px}
+.stat-val{font-size:24px;font-weight:600;line-height:1;margin-bottom:2px}
 .stat-note{font-size:11px;color:var(--text3)}
-/* Progress */
-.prog-row{margin-bottom:10px}
-.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:4px}
+.prog-row{margin-bottom:8px}
+.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:3px}
 .prog-track{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .prog-fill{height:100%;border-radius:2px;transition:width .6s ease}
-/* Table */
 .tbl-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--text3);padding:8px 10px;border-bottom:1px solid var(--border);background:var(--surface2);white-space:nowrap}
-td{padding:9px 10px;border-bottom:1px solid var(--bg2);color:var(--text);vertical-align:middle;white-space:nowrap}
+th{text-align:left;font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--text3);padding:7px 9px;border-bottom:1px solid var(--border);background:var(--surface2);white-space:nowrap}
+td{padding:8px 9px;border-bottom:1px solid var(--bg2);color:var(--text);vertical-align:middle;white-space:nowrap}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:var(--bg)}
-/* Badges */
 .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap}
 .b-wait{background:var(--amber-bg);color:var(--amber)}
 .b-ok{background:var(--blue-bg);color:var(--blue)}
-.b-visit{background:#E1F5EE;color:#085041}
 .b-done{background:#EAF3DE;color:#27500A}
 .b-fail{background:var(--red-bg);color:var(--red)}
-/* Form */
-label{font-size:12px;font-weight:500;color:var(--text2);display:block;margin-bottom:4px}
-input,select,textarea{width:100%;font-family:var(--sans);font-size:13px;padding:8px 11px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);outline:none;transition:border-color .15s}
-input:focus,select:focus,textarea:focus{border-color:var(--accent)}
-textarea{resize:vertical;min-height:64px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.b-consult{background:#E8EAF6;color:#283593}
+.b-surgery{background:#E8F5E9;color:#1B5E20}
+label{font-size:12px;font-weight:500;color:var(--text2);display:block;margin-bottom:3px}
+input,select,textarea{width:100%;font-family:var(--sans);font-size:13px;padding:7px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);outline:none;transition:border-color .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--green)}
+textarea{resize:vertical;min-height:60px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .form-full{grid-column:1/-1}
 .form-check{display:flex;align-items:center;gap:8px}
 .form-check input[type=checkbox]{width:auto;padding:0}
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--radius);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:var(--radius);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;border:1px solid var(--border);background:var(--surface);color:var(--text)}
 .btn:hover{background:var(--bg2)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled{opacity:.4;cursor:not-allowed}
 .btn-primary{background:var(--text);color:#fff;border-color:var(--text)}
 .btn-primary:hover{background:#2A2926}
 .btn-success{background:var(--green);color:#fff;border-color:var(--green)}
 .btn-success:hover{background:#0D5C47}
-.btn-sm{padding:5px 10px;font-size:12px}
+.btn-sm{padding:4px 9px;font-size:11px}
 .btn-full{width:100%;justify-content:center}
-/* Alert boxes */
-.alert{border-radius:var(--radius);padding:10px 13px;font-size:12px;line-height:1.7;margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
-.alert i{flex-shrink:0;margin-top:1px;font-size:15px}
+.alert{border-radius:var(--radius);padding:9px 12px;font-size:12px;line-height:1.7;margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
+.alert i{flex-shrink:0;margin-top:1px;font-size:14px}
 .alert-info{background:var(--blue-bg);color:var(--blue);border:0.5px solid #B5D4F4}
 .alert-success{background:var(--green-bg);color:var(--green);border:0.5px solid #9FE1CB}
 .alert-warn{background:var(--amber-bg);color:var(--amber);border:0.5px solid #FAC775}
-/* AI box */
-.ai-box{background:var(--bg);border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:10px 13px;font-size:12px;line-height:1.7;color:var(--text);margin-top:10px}
-.ai-label{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--blue);margin-bottom:4px;display:flex;align-items:center;gap:4px}
-/* Spinner */
+.ai-box{background:var(--bg);border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:9px 12px;font-size:12px;line-height:1.7;color:var(--text);margin-top:8px}
+.ai-label{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--blue);margin-bottom:3px;display:flex;align-items:center;gap:4px}
 .spin{display:inline-block;width:12px;height:12px;border:1.5px solid var(--border2);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* Bonus */
-.bonus-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--bg2)}
+.bonus-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--bg2);font-size:12px}
 .bonus-row:last-child{border-bottom:none}
-.bonus-name{font-size:13px;font-weight:500}
-.bonus-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.bonus-amt{font-size:14px;font-weight:600}
-/* Steps */
-.step-list{display:flex;flex-direction:column}
-.step-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bg2);align-items:flex-start}
-.step-item:last-child{border-bottom:none}
-.step-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:1px}
-.step-done .step-dot{background:var(--green-bg);color:var(--green)}
-.step-todo .step-dot{background:var(--bg3);color:var(--text3)}
-.step-body .step-title{font-size:13px;font-weight:500;margin-bottom:2px}
-.step-body .step-desc{font-size:12px;color:var(--text2)}
-/* Setup config box */
-.config-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
-.config-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.config-row:last-child{margin-bottom:0}
-.config-label{font-size:12px;font-weight:500;color:var(--text2);width:100px;flex-shrink:0}
-.config-val{font-family:var(--mono);font-size:11px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:5px 9px;flex:1;word-break:break-all}
-/* Link row */
-.link-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg);border-radius:var(--radius);margin-bottom:8px;border:1px solid var(--border)}
-.link-name{font-size:13px;font-weight:500}
-.link-sub{font-size:11px;color:var(--text3);margin-top:1px}
-/* Section label */
-.section-label{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--text3);margin:14px 0 8px}
-/* Toast */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--text);color:#fff;padding:10px 16px;border-radius:var(--radius-lg);font-size:13px;font-weight:500;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;z-index:999;max-width:320px}
-.toast.show{opacity:1;transform:translateY(0)}
-/* Refresh btn */
 .refresh-btn{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2);cursor:pointer;background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 10px;transition:all .15s}
 .refresh-btn:hover{background:var(--bg2)}
 .spinning{animation:spin .7s linear infinite}
+.section-label{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--text3);margin:12px 0 7px}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--text);color:#fff;padding:9px 15px;border-radius:var(--radius-lg);font-size:13px;font-weight:500;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;z-index:999}
+.toast.show{opacity:1;transform:translateY(0)}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.summary-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;text-align:center}
+.summary-val{font-size:22px;font-weight:600;margin-bottom:2px}
+.summary-label{font-size:11px;color:var(--text3)}
 </style>
 </head>
 <body>
-
 <div class="layout">
-<!-- Sidebar -->
 <aside class="sidebar">
   <div class="sidebar-logo">
     <div class="sidebar-brand">CLINICO 科林集團</div>
@@ -170,45 +133,35 @@ textarea{resize:vertical;min-height:64px}
     <div class="nav-section">系統</div>
     <div class="nav-item" onclick="sw('setup',this)"><i class="ti ti-settings"></i><span>設定</span></div>
   </nav>
-  <div class="sidebar-footer"><span class="live-dot"></span>v2.0 · Sheets 串接版</div>
+  <div class="sidebar-footer"><span class="live-dot"></span>v3.0 · 最新欄位版</div>
 </aside>
 
-<!-- Main -->
 <main class="main">
 
 <!-- 總覽 -->
 <div id="dash" class="page active">
   <div class="page-header">
-    <div class="page-header-left">
-      <h1>總覽儀表板</h1>
-      <p id="last-sync-label">資料同步中...</p>
-    </div>
-    <button class="refresh-btn" onclick="loadFromSheets(true)">
-      <i class="ti ti-refresh" id="refresh-icon"></i> 重新整理
-    </button>
+    <div class="page-header-left"><h1>總覽儀表板</h1><p id="last-sync-label">資料同步中...</p></div>
+    <button class="refresh-btn" onclick="loadFromSheets(true)"><i class="ti ti-refresh" id="ri1"></i> 重新整理</button>
   </div>
   <div class="page-body">
-    <div id="sheets-not-set" class="alert alert-info" style="display:none">
-      <i class="ti ti-alert-triangle"></i>
-      <div>試算表 ID 已內建，任何人開啟都自動連線。若需更換其他試算表，可在下方輸入新的 ID 覆蓋設定。</div>
-    </div>
     <div class="stat-grid">
       <div class="stat-card"><div class="stat-label">本月轉介</div><div class="stat-val" id="d1">—</div><div class="stat-note">目標 25 件/年</div></div>
       <div class="stat-card"><div class="stat-label">審核通過</div><div class="stat-val" id="d2" style="color:var(--blue)">—</div><div class="stat-note" id="d2n">通過率 —</div></div>
-      <div class="stat-card"><div class="stat-label">待發獎金</div><div class="stat-val" id="d3" style="color:var(--green)">—</div><div class="stat-note">累計金額</div></div>
+      <div class="stat-card"><div class="stat-label">待發獎金</div><div class="stat-val" id="d3" style="color:var(--green)">—</div><div class="stat-note">累計待發</div></div>
       <div class="stat-card"><div class="stat-label">手術完成</div><div class="stat-val" id="d4" style="color:var(--amber)">—</div><div class="stat-note" id="d4n">轉化率 —</div></div>
     </div>
     <div class="card">
       <div class="card-head"><div class="card-title"><i class="ti ti-progress"></i>年度進度</div></div>
       <div class="prog-row"><div class="prog-meta"><span>轉介件數</span><span id="p1t">0/25</span></div><div class="prog-track"><div class="prog-fill" id="p1" style="background:var(--blue);width:0%"></div></div></div>
-      <div class="prog-row"><div class="prog-meta"><span>到診人數</span><span id="p2t">0/25</span></div><div class="prog-track"><div class="prog-fill" id="p2" style="background:var(--green);width:0%"></div></div></div>
+      <div class="prog-row"><div class="prog-meta"><span>審核通過</span><span id="p2t">0/25</span></div><div class="prog-track"><div class="prog-fill" id="p2" style="background:var(--green);width:0%"></div></div></div>
       <div class="prog-row" style="margin-bottom:0"><div class="prog-meta"><span>手術完成</span><span id="p3t">0/25</span></div><div class="prog-track"><div class="prog-fill" id="p3" style="background:var(--amber);width:0%"></div></div></div>
     </div>
     <div class="card">
       <div class="card-head"><div class="card-title"><i class="ti ti-list"></i>最新案件</div><button class="btn btn-sm" onclick="sw('ci',document.querySelectorAll('.nav-item')[2])">查看全部</button></div>
       <div class="tbl-wrap"><table>
-        <thead><tr><th>日期</th><th>員工編號</th><th>門市</th><th>會員編號</th><th>用戶</th><th>SDS</th><th>狀態</th></tr></thead>
-        <tbody id="dash-tbody"><tr><td colspan="7" style="text-align:center;color:var(--text3);padding:20px">載入中...</td></tr></tbody>
+        <thead><tr><th>填表日期</th><th>門市</th><th>員工編號</th><th>用戶姓名</th><th>SDS</th><th>審核結果</th><th>聯繫狀態</th></tr></thead>
+        <tbody id="dash-tbody"><tr><td colspan="7" style="text-align:center;color:var(--text3);padding:16px">載入中...</td></tr></tbody>
       </table></div>
     </div>
   </div>
@@ -216,41 +169,35 @@ textarea{resize:vertical;min-height:64px}
 
 <!-- 門市轉介 -->
 <div id="store" class="page">
-  <div class="page-header"><div class="page-header-left"><h1>門市轉介</h1><p>填寫轉介單，送出後資料自動寫入 Google Sheets</p></div></div>
+  <div class="page-header"><div class="page-header-left"><h1>門市轉介</h1><p>填寫轉介單，送出後自動通知 CI Team</p></div></div>
   <div class="page-body">
-    <div class="alert alert-info"><i class="ti ti-info-circle"></i><div>送出後資料會進入 Google Sheets 試算表，CI Team 可在儀表板按「重新整理」看到最新案件。</div></div>
+    <div class="alert alert-info"><i class="ti ti-info-circle"></i><div>送出後 CI Team 將於 <strong>3天內</strong>完成審核，審核結果將自動通知。</div></div>
     <div class="card">
       <div class="card-head"><div class="card-title"><i class="ti ti-file-plus"></i>轉介表單</div></div>
       <div class="section-label">門市人員資訊</div>
       <div class="form-grid">
-        <div><label>門市名稱 *</label><input id="f-store" placeholder="例：台北信義門市"></div>
-        <div><label>員工編號 *</label><input id="f-empid" placeholder="例：EMP-0123"></div>
+        <div><label>門市名稱 *</label><input id="f-store" placeholder="例：科林-台北民生門市"></div>
+        <div><label>員工編號 *</label><input id="f-empid" placeholder="例：L1230"></div>
         <div class="form-full"><label>轉介人員姓名 *</label><input id="f-staff" placeholder="姓名"></div>
       </div>
       <div class="section-label">用戶資訊</div>
       <div class="form-grid">
-        <div><label>會員編號（選填）</label><input id="f-mbrid" placeholder="例：MBR-56789"></div>
         <div><label>用戶姓名 *</label><input id="f-name" placeholder="真實姓名"></div>
+        <div><label>會員編號（選填）</label><input id="f-mbrid" placeholder="例：CI0001"></div>
         <div><label>聯絡電話 *</label><input id="f-phone" placeholder="09xx-xxx-xxx"></div>
         <div><label>SDS 語音辨識率（優耳，%）*</label><input id="f-sds" type="number" min="0" max="100" placeholder="例：38"></div>
         <div class="form-full"><label>主要困擾 *</label>
-          <select id="f-complaint">
-            <option value="">請選擇</option>
+          <select id="f-complaint"><option value="">請選擇</option>
             <option>聽得到但聽不懂</option><option>常需要對方重複</option>
             <option>電話溝通困難</option><option>群體場合無法溝通</option>
-            <option>助聽器多次調整仍無效</option>
-          </select>
-        </div>
-        <div class="form-full"><label>補充說明（選填）</label><textarea id="f-note" placeholder="助聽器使用年資、試聽情況、用戶態度..."></textarea></div>
+            <option>助聽器多次調整仍無效</option></select></div>
+        <div class="form-full"><label>補充說明（選填）</label><textarea id="f-note" placeholder="助聽器使用年資、試聽情況..."></textarea></div>
         <div class="form-full"><div class="form-check"><input type="checkbox" id="f-consent"><label for="f-consent" style="margin:0;font-size:13px;cursor:pointer;color:var(--text)">用戶本人已確認同意接受 CI Team 聯繫</label></div></div>
       </div>
-      <button class="btn btn-full" onclick="aiCheck()" style="margin-bottom:10px"><i class="ti ti-robot"></i> AI 資格預審</button>
-      <div id="ai-wrap" style="display:none">
-        <div class="ai-label"><i class="ti ti-sparkles" style="font-size:12px"></i> AI 審核結果</div>
-        <div class="ai-box" id="ai-out"></div>
-      </div>
-      <button id="submit-btn" class="btn btn-success btn-full" onclick="submitCase()" disabled style="margin-top:10px"><i class="ti ti-send"></i> 提交轉介單</button>
-      <div id="submit-ok" style="display:none;text-align:center;font-size:13px;color:var(--green);margin-top:8px;font-weight:500"><i class="ti ti-check"></i> 已提交！CI Team 將於24小時內聯繫用戶。</div>
+      <button class="btn btn-full" onclick="aiCheck()" style="margin-bottom:8px"><i class="ti ti-robot"></i> AI 資格預審</button>
+      <div id="ai-wrap" style="display:none"><div class="ai-label"><i class="ti ti-sparkles" style="font-size:12px"></i> AI 審核結果</div><div class="ai-box" id="ai-out"></div></div>
+      <button id="submit-btn" class="btn btn-success btn-full" onclick="submitCase()" disabled style="margin-top:8px"><i class="ti ti-send"></i> 提交轉介單</button>
+      <div id="submit-ok" style="display:none;text-align:center;font-size:13px;color:var(--green);margin-top:8px;font-weight:500"><i class="ti ti-check"></i> 已提交！CI Team 將於3天內完成審核。</div>
     </div>
   </div>
 </div>
@@ -258,159 +205,112 @@ textarea{resize:vertical;min-height:64px}
 <!-- CI 追蹤 -->
 <div id="ci" class="page">
   <div class="page-header">
-    <div class="page-header-left"><h1>CI 追蹤管理</h1><p>更新用戶狀態，產生 LINE 通知稿</p></div>
-    <button class="refresh-btn" onclick="loadFromSheets(true)"><i class="ti ti-refresh" id="refresh-icon2"></i> 重新整理</button>
+    <div class="page-header-left"><h1>CI 追蹤管理</h1><p>查看所有轉介案件狀態</p></div>
+    <button class="refresh-btn" onclick="loadFromSheets(true)"><i class="ti ti-refresh" id="ri2"></i> 重新整理</button>
   </div>
   <div class="page-body">
-    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-      <select id="fil-s" onchange="renderCI()" style="width:auto;font-size:12px;padding:6px 10px">
-        <option value="">全部狀態</option>
-        <option>待審核</option><option>已確認</option><option>已到診</option><option>已手術</option><option>不符資格</option>
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+      <select id="fil-s" onchange="renderCI()" style="width:auto;font-size:12px;padding:5px 9px">
+        <option value="">全部審核結果</option><option>符合</option><option>不符合</option><option>（待審核）</option>
       </select>
-      <input id="fil-q" oninput="renderCI()" placeholder="搜尋門市 / 姓名 / 員工編號..." style="flex:1;min-width:140px;font-size:12px;padding:6px 10px">
+      <select id="fil-o" onchange="renderCI()" style="width:auto;font-size:12px;padding:5px 9px">
+        <option value="">全部聯繫狀態</option>
+        <option>已安排諮商</option><option>聯繫3次無接通</option>
+        <option>諮商完成，考慮中</option><option>諮商完成，不考慮CI</option><option>已安排手術</option>
+      </select>
+      <input id="fil-q" oninput="renderCI()" placeholder="搜尋門市 / 姓名 / 員工編號..." style="flex:1;min-width:140px;font-size:12px;padding:5px 9px">
     </div>
-    <div class="alert alert-info"><i class="ti ti-info-circle"></i><div>狀態更新後會同步回 Google Sheets。請按右上角「重新整理」取得最新 Sheets 資料。</div></div>
     <div class="card" style="padding:0;overflow:hidden">
       <div class="tbl-wrap"><table>
-        <thead><tr><th>日期</th><th>員工編號</th><th>門市</th><th>會員編號</th><th>用戶</th><th>SDS</th><th>狀態</th><th>操作</th></tr></thead>
-        <tbody id="ci-tbody"><tr><td colspan="8" style="text-align:center;color:var(--text3);padding:20px">載入中...</td></tr></tbody>
+        <thead><tr><th>填表日期</th><th>門市</th><th>員工編號</th><th>轉介人員</th><th>用戶姓名</th><th>SDS</th><th>審核結果</th><th>負責業務</th><th>聯繫狀態</th><th>諮商日期</th><th>手術日期</th></tr></thead>
+        <tbody id="ci-tbody"><tr><td colspan="11" style="text-align:center;color:var(--text3);padding:16px">載入中...</td></tr></tbody>
       </table></div>
-    </div>
-    <div class="card" style="margin-top:16px">
-      <div class="card-head"><div class="card-title"><i class="ti ti-message-circle"></i>LINE 通知稿</div></div>
-      <select id="sel-case" style="margin-bottom:10px"><option value="">請選擇案件</option></select>
-      <button class="btn btn-full" onclick="genNotify()"><i class="ti ti-robot"></i> 產生通知稿</button>
-      <div id="notify-wrap" style="display:none;margin-top:10px">
-        <div class="ai-label"><i class="ti ti-sparkles" style="font-size:12px"></i> LINE 通知稿</div>
-        <div class="ai-box" id="notify-out"></div>
-        <button class="btn btn-sm" onclick="copyEl('notify-out')" style="margin-top:8px"><i class="ti ti-copy"></i> 複製</button>
-      </div>
     </div>
   </div>
 </div>
 
 <!-- 獎金結算 -->
 <div id="bonus" class="page">
-  <div class="page-header"><div class="page-header-left"><h1>獎金結算</h1><p>自動計算轉介與手術獎金</p></div></div>
+  <div class="page-header"><div class="page-header-left"><h1>獎金結算</h1><p>自動統計轉介與手術獎金</p></div></div>
   <div class="page-body">
-    <div class="card"><div class="card-head"><div class="card-title"><i class="ti ti-receipt"></i>本月獎金明細</div></div>
-      <div id="bonus-list"><div style="text-align:center;color:var(--text3);padding:20px;font-size:13px">載入中...</div></div>
-      <div style="border-top:1px solid var(--bg2);padding-top:12px;margin-top:8px;display:flex;justify-content:space-between;font-size:14px;font-weight:600">
-        <span>合計</span><span id="bonus-total" style="color:var(--green)">$0</span>
-      </div>
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-val" id="bs1" style="color:var(--green)">$0</div><div class="summary-label">轉介獎金待發</div></div>
+      <div class="summary-card"><div class="summary-val" id="bs2" style="color:var(--blue)">$0</div><div class="summary-label">手術獎金待發</div></div>
+      <div class="summary-card"><div class="summary-val" id="bs3" style="color:var(--amber)">$0</div><div class="summary-label">合計待發</div></div>
     </div>
-    <div class="card"><div class="card-head"><div class="card-title"><i class="ti ti-download"></i>匯出</div></div>
+    <div class="card">
+      <div class="card-head"><div class="card-title"><i class="ti ti-receipt"></i>轉介獎金明細（待發放）</div></div>
+      <div id="ref-bonus-list"><div style="text-align:center;color:var(--text3);padding:16px;font-size:13px">載入中...</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title"><i class="ti ti-receipt"></i>手術獎金明細（待發放）</div></div>
+      <div id="surg-bonus-list"><div style="text-align:center;color:var(--text3);padding:16px;font-size:13px">載入中...</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title"><i class="ti ti-download"></i>匯出</div></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn" onclick="exportCSV()"><i class="ti ti-table-export"></i> 匯出 CSV</button>
         <button class="btn" onclick="copySummary()"><i class="ti ti-copy"></i> 複製摘要</button>
       </div>
     </div>
-    <div class="card"><div class="card-head"><div class="card-title"><i class="ti ti-robot"></i>AI 月報</div></div>
-      <button class="btn btn-full" onclick="genReport()" style="margin-bottom:10px"><i class="ti ti-sparkles"></i> 生成主管版月報</button>
-      <div id="report-wrap" style="display:none">
-        <div class="ai-label"><i class="ti ti-sparkles" style="font-size:12px"></i> AI 月報</div>
-        <div class="ai-box" id="report-out"></div>
-        <button class="btn btn-sm" onclick="copyEl('report-out')" style="margin-top:8px"><i class="ti ti-copy"></i> 複製</button>
-      </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title"><i class="ti ti-robot"></i>AI 月報</div></div>
+      <button class="btn btn-full" onclick="genReport()" style="margin-bottom:8px"><i class="ti ti-sparkles"></i> 生成主管版月報</button>
+      <div id="report-wrap" style="display:none"><div class="ai-label"><i class="ti ti-sparkles" style="font-size:12px"></i> AI 月報</div><div class="ai-box" id="report-out"></div><button class="btn btn-sm" onclick="copyEl('report-out')" style="margin-top:8px"><i class="ti ti-copy"></i> 複製</button></div>
     </div>
   </div>
 </div>
 
 <!-- 設定 -->
 <div id="setup" class="page">
-  <div class="page-header"><div class="page-header-left"><h1>系統設定</h1><p>設定 Google Sheets 串接，讓儀表板自動同步真實資料</p></div></div>
+  <div class="page-header"><div class="page-header-left"><h1>系統設定</h1><p>Google Sheets 串接設定</p></div></div>
   <div class="page-body">
-
     <div class="card">
-      <div class="card-head"><div class="card-title"><i class="ti ti-table"></i>Google Sheets 串接設定</div></div>
-      <div class="alert alert-warn"><i class="ti ti-alert-triangle"></i>
-        <div>完成以下設定後，儀表板將直接讀取 Google Sheets 的真實資料，所有人開啟同一網址都能看到最新狀態。</div>
+      <div class="card-head"><div class="card-title"><i class="ti ti-table"></i>目前串接的試算表</div>
+        <span style="font-size:11px;color:var(--green);font-weight:500" id="conn-status"></span>
       </div>
-
-      <div class="section-label">步驟 1 — 試算表共用設定（必做）</div>
-      <div class="step-list">
-        <div class="step-item step-todo">
-          <div class="step-dot">1</div>
-          <div class="step-body">
-            <div class="step-title">開啟 Google Sheets 試算表</div>
-            <div class="step-desc">點右上角「共用」按鈕</div>
-          </div>
-        </div>
-        <div class="step-item step-todo">
-          <div class="step-dot">2</div>
-          <div class="step-body">
-            <div class="step-title">取得連結 → 改為「知道連結的人」</div>
-            <div class="step-desc">權限設定為「檢視者」即可，不需要編輯權限</div>
-          </div>
-        </div>
-        <div class="step-item step-todo">
-          <div class="step-dot">3</div>
-          <div class="step-body">
-            <div class="step-title">複製試算表 ID 填入下方</div>
-            <div class="step-desc">URL 中 /d/ 和 /edit 之間的那串字就是 ID</div>
-          </div>
-        </div>
+      <div style="background:var(--bg);border-radius:var(--radius);padding:10px 12px;margin-bottom:12px">
+        <div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:2px">CI電子耳轉介系統_2026</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text3)" id="show-id">—</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">分頁：<span id="show-name">—</span> · 最後同步：<span id="show-time">—</span></div>
       </div>
-
-      <div class="section-label" style="margin-top:16px">步驟 2 — 填入試算表資訊</div>
-      <div style="margin-bottom:10px">
-        <label>試算表 ID <span style="color:var(--red)">*</span></label>
-        <input id="cfg-sheet-id" placeholder="例：1S7bL2mRl8wIpUTi_spYOci4cB2axQiRByX5ogyHmP84" style="font-family:var(--mono);font-size:12px">
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">從試算表網址複製：docs.google.com/spreadsheets/d/<strong>這一段</strong>/edit</div>
-      </div>
-      <div style="margin-bottom:10px">
-        <label>資料分頁名稱 <span style="color:var(--red)">*</span></label>
-        <input id="cfg-sheet-name" placeholder="例：工作表1 或 CI電子耳轉介單（回覆）">
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">就是試算表底部的分頁標籤名稱，Google Forms 串接後通常叫「表單回覆 1」</div>
-      </div>
+      <div style="margin-bottom:10px"><label>試算表 ID</label><input id="cfg-id" style="font-family:var(--mono);font-size:12px" placeholder="貼上試算表 ID"></div>
+      <div style="margin-bottom:10px"><label>分頁名稱</label><input id="cfg-name" placeholder="例：表單回覆 1"></div>
       <button class="btn btn-success btn-full" onclick="saveConfig()" style="margin-bottom:8px"><i class="ti ti-device-floppy"></i> 儲存並測試連線</button>
-      <div id="cfg-result" style="display:none"></div>
-
-      <div class="section-label" style="margin-top:16px">目前設定值</div>
-      <div class="config-box">
-        <div class="config-row"><span class="config-label">試算表 ID</span><span class="config-val" id="cfg-show-id">（未設定）</span></div>
-        <div class="config-row"><span class="config-label">分頁名稱</span><span class="config-val" id="cfg-show-name">（未設定）</span></div>
-        <div class="config-row"><span class="config-label">連線狀態</span><span class="config-val" id="cfg-show-status">—</span></div>
-        <div class="config-row"><span class="config-label">最後同步</span><span class="config-val" id="cfg-show-time">—</span></div>
-      </div>
-      <button class="btn btn-sm" onclick="clearConfig()" style="color:var(--red);border-color:var(--red)"><i class="ti ti-trash"></i> 清除設定</button>
+      <div id="cfg-result"></div>
+      <button class="btn btn-sm" onclick="clearConfig()" style="color:var(--red);border-color:var(--red);margin-top:8px"><i class="ti ti-trash"></i> 清除設定（恢復預設）</button>
     </div>
-
     <div class="card">
-      <div class="card-head"><div class="card-title"><i class="ti ti-columns"></i>欄位對應說明</div></div>
-      <div class="alert alert-info"><i class="ti ti-info-circle"></i>
-        <div>系統依照以下順序讀取 Google Sheets 欄位。若你的 Google Forms 題目順序不同，請調整試算表欄位順序後再串接。</div>
-      </div>
+      <div class="card-head"><div class="card-title"><i class="ti ti-columns"></i>欄位對應（A~X）</div></div>
       <div class="tbl-wrap"><table>
-        <thead><tr><th>欄位順序</th><th>欄位名稱</th><th>對應 Forms 題目</th><th>說明</th></tr></thead>
+        <thead><tr><th>欄</th><th>名稱</th><th>來源</th></tr></thead>
         <tbody>
-          <tr><td style="font-family:var(--mono)">A</td><td>案件ID</td><td>（手動）</td><td style="color:var(--text2);font-size:11px">C001, C002...</td></tr>
-          <tr><td style="font-family:var(--mono)">B</td><td>轉介日期</td><td>（手動）</td><td style="color:var(--text2);font-size:11px">YYYY-MM-DD</td></tr>
-          <tr><td style="font-family:var(--mono)">C</td><td>門市名稱</td><td>Q1</td><td style="color:var(--text2);font-size:11px">簡答，門市自行填寫</td></tr>
-          <tr><td style="font-family:var(--mono)">D</td><td>轉介人員</td><td>Q3</td><td style="color:var(--text2);font-size:11px">必填</td></tr>
-          <tr><td style="font-family:var(--mono)">E</td><td>員工編號</td><td>Q2</td><td style="color:var(--text2);font-size:11px">必填</td></tr>
-          <tr><td style="font-family:var(--mono)">F</td><td>用戶姓名</td><td>Q5</td><td style="color:var(--text2);font-size:11px">必填</td></tr>
-          <tr><td style="font-family:var(--mono)">G</td><td>會員編號</td><td>Q4</td><td style="color:var(--text2);font-size:11px">選填</td></tr>
-          <tr><td style="font-family:var(--mono)">H</td><td>聯絡電話</td><td>Q6</td><td style="color:var(--text2);font-size:11px">必填</td></tr>
-          <tr><td style="font-family:var(--mono)">I</td><td>SDS 語音辨識率</td><td>Q7</td><td style="color:var(--text2);font-size:11px">數字，%</td></tr>
-          <tr><td style="font-family:var(--mono)">J</td><td>主要困擾</td><td>Q8</td><td style="color:var(--text2);font-size:11px">下拉選單</td></tr>
-          <tr><td style="font-family:var(--mono)">K</td><td>用戶同意聯繫</td><td>Q10</td><td style="color:var(--text2);font-size:11px">是/否</td></tr>
-          <tr><td style="font-family:var(--mono)">L</td><td>補充說明</td><td>Q9</td><td style="color:var(--text2);font-size:11px">選填</td></tr>
-          <tr><td style="font-family:var(--mono)" style="background:#EAF3DE;font-weight:600">M</td><td style="background:#EAF3DE;font-weight:600;color:var(--green)">狀態</td><td style="background:#EAF3DE">（手動）</td><td style="background:#EAF3DE;color:var(--green);font-size:11px">CI Team 在此欄填寫狀態 ← 儀表板讀取此欄</td></tr>
-          <tr><td style="font-family:var(--mono)">N</td><td>手術日期</td><td>（手動）</td><td style="color:var(--text2);font-size:11px">手術確認後填寫</td></tr>
+          <tr><td style="font-family:var(--mono)">A</td><td>時間戳記</td><td style="color:var(--text3)">Forms 自動</td></tr>
+          <tr><td style="font-family:var(--mono)">B</td><td>門市名稱</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">C</td><td>員工編號</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">D</td><td>轉介人員姓名</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">E</td><td>用戶姓名</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">F</td><td>會員編號</td><td style="color:var(--text3)">Forms 選填</td></tr>
+          <tr><td style="font-family:var(--mono)">G</td><td>用戶連絡電話</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">H</td><td>SDS語音辨識率(%)</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">I</td><td>主要困擾</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">J</td><td>補充說明</td><td style="color:var(--text3)">Forms 選填</td></tr>
+          <tr><td style="font-family:var(--mono)">K</td><td>用戶已同意</td><td style="color:var(--text3)">Forms</td></tr>
+          <tr><td style="font-family:var(--mono)">L</td><td>負責業務</td><td style="color:var(--text3)">CI Team（Ana/Cora/Star）</td></tr>
+          <tr style="background:var(--green-bg)"><td style="font-family:var(--mono);font-weight:600;color:var(--green)">M</td><td style="font-weight:600;color:var(--green)">審核結果</td><td style="color:var(--green)">符合 / 不符合 ← 觸發自動通知</td></tr>
+          <tr><td style="font-family:var(--mono)">N</td><td>審核日期</td><td style="color:var(--text3)">Apps Script 自動填入</td></tr>
+          <tr><td style="font-family:var(--mono)">O</td><td>聯繫狀態</td><td style="color:var(--text3)">CI Team 下拉</td></tr>
+          <tr><td style="font-family:var(--mono)">P</td><td>最近一筆致電日期</td><td style="color:var(--text3)">CI Team 手動</td></tr>
+          <tr><td style="font-family:var(--mono)">Q</td><td>諮商日期</td><td style="color:var(--text3)">CI Team 手動</td></tr>
+          <tr><td style="font-family:var(--mono)">R</td><td>手術日期</td><td style="color:var(--text3)">CI Team 手動 ← 填入後自動帶入手術獎金</td></tr>
+          <tr><td style="font-family:var(--mono)">S</td><td>CI業務備註</td><td style="color:var(--text3)">CI Team 手動</td></tr>
+          <tr style="background:var(--amber-bg)"><td style="font-family:var(--mono);color:var(--amber)">T</td><td style="color:var(--amber)">轉介獎金($)</td><td style="color:var(--amber)">審核符合後自動 $1,000</td></tr>
+          <tr style="background:var(--amber-bg)"><td style="font-family:var(--mono);color:var(--amber)">U</td><td style="color:var(--amber)">手術獎金($)</td><td style="color:var(--amber)">手術日期填入後自動 $2,500</td></tr>
+          <tr style="background:var(--amber-bg)"><td style="font-family:var(--mono);color:var(--amber)">V</td><td style="color:var(--amber)">合計獎金($)</td><td style="color:var(--amber)">T+U 自動合計</td></tr>
+          <tr><td style="font-family:var(--mono)">W</td><td>轉介獎金發放</td><td style="color:var(--text3)">待發放 / 已發放</td></tr>
+          <tr><td style="font-family:var(--mono)">X</td><td>手術獎金發放</td><td style="color:var(--text3)">待發放 / 已發放</td></tr>
         </tbody>
       </table></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div class="card-title"><i class="ti ti-checklist"></i>建置進度</div></div>
-      <div class="step-list">
-        <div class="step-item step-done"><div class="step-dot"><i class="ti ti-check" style="font-size:11px"></i></div><div class="step-body"><div class="step-title">Google Drive 試算表已建立</div><div class="step-desc">CI轉介追蹤系統_2026</div></div></div>
-        <div class="step-item step-done"><div class="step-dot"><i class="ti ti-check" style="font-size:11px"></i></div><div class="step-body"><div class="step-title">AI 追蹤系統已部署（Netlify/GitHub）</div><div class="step-desc">本頁面</div></div></div>
-        <div class="step-item step-todo"><div class="step-dot">3</div><div class="step-body"><div class="step-title">試算表設為公開檢視</div><div class="step-desc">共用 → 知道連結的人 → 檢視者</div></div></div>
-        <div class="step-item step-todo"><div class="step-dot">4</div><div class="step-body"><div class="step-title">填入上方試算表 ID 完成串接</div><div class="step-desc">完成後按「儲存並測試連線」</div></div></div>
-        <div class="step-item step-todo"><div class="step-dot">5</div><div class="step-body"><div class="step-title">建立 Google Forms 並連結試算表</div><div class="step-desc">forms.google.com → 回覆 → 連結試算表</div></div></div>
-      </div>
     </div>
   </div>
 </div>
@@ -420,276 +320,204 @@ textarea{resize:vertical;min-height:64px}
 <div class="toast" id="toast"></div>
 
 <script>
-// ── 設定管理 ──────────────────────────────────
-const CFG_KEY = 'ci_config_v1';
-const DATA_KEY = 'ci_data_v2';
-
-// 預設設定：已內建，任何人開啟都自動連線，不需手動輸入
+// ── 預設設定（新試算表）────────────────────────────────────
 const DEFAULT_CFG = {
-  sheetId: '1S7bL2mRl8wIpUTi_spYOci4cB2axQiRByX5ogyHmP84',
-  sheetName: 'CI轉介追蹤系統_2026'
+  sheetId:   '1y0rxDqk8D6BV3I6iXcxHnMneIlJCepxwfKKNHhI42fo',
+  sheetName: '表單回覆 1'  // Google Forms 串接後的分頁名稱
 };
+const CFG_KEY = 'ci_cfg_v3';
 
 function loadCfg() {
   try {
-    const saved = JSON.parse(localStorage.getItem(CFG_KEY)) || {};
-    return {
-      sheetId: saved.sheetId || DEFAULT_CFG.sheetId,
-      sheetName: saved.sheetName || DEFAULT_CFG.sheetName,
-      lastSync: saved.lastSync || ''
-    };
+    const s = JSON.parse(localStorage.getItem(CFG_KEY)) || {};
+    return { sheetId: s.sheetId || DEFAULT_CFG.sheetId, sheetName: s.sheetName || DEFAULT_CFG.sheetName, lastSync: s.lastSync || '' };
   } catch(e) { return DEFAULT_CFG; }
 }
-function saveCfg(c) {
-  localStorage.setItem(CFG_KEY, JSON.stringify(c));
-}
-
-// ── 範例資料（Sheets 未設定時使用）──────────────
-const DEMO = [
-  {id:'C001',date:'2026-05-02',store:'新北板橋門市',empid:'EMP-0021',staff:'王小明',mbrid:'MBR-10234',name:'林○○',phone:'0912-345-678',sds:32,complaint:'常需要對方重複',note:'助聽器3年調整3次',status:'已手術',surgDate:'2026-05-18'},
-  {id:'C002',date:'2026-05-05',store:'台北信義門市',empid:'EMP-0045',staff:'陳美惠',mbrid:'MBR-20871',name:'張○○',phone:'0923-456-789',sds:45,complaint:'電話溝通困難',note:'',status:'已到診',surgDate:''},
-  {id:'C003',date:'2026-05-08',store:'台北信義門市',empid:'EMP-0045',staff:'陳美惠',mbrid:'',name:'吳○○',phone:'0934-567-890',sds:28,complaint:'聽得到但聽不懂',note:'意願強烈',status:'已確認',surgDate:''},
-  {id:'C004',date:'2026-05-10',store:'高雄左營門市',empid:'EMP-0087',staff:'黃大偉',mbrid:'MBR-30456',name:'許○○',phone:'0945-678-901',sds:62,complaint:'助聽器多次調整仍無效',note:'',status:'不符資格',surgDate:''},
-  {id:'C005',date:'2026-05-12',store:'台中西屯門市',empid:'EMP-0063',staff:'劉淑芬',mbrid:'',name:'楊○○',phone:'0956-789-012',sds:41,complaint:'群體場合無法溝通',note:'',status:'待審核',surgDate:''},
-];
+function saveCfg(c) { try { localStorage.setItem(CFG_KEY, JSON.stringify(c)); } catch(e) {} }
 
 let cases = [];
-let usingDemo = false;
 
-// ── Google Sheets 讀取 ────────────────────────
-// 使用 Google Sheets CSV 匯出端點（公開試算表免 API Key）
+// ── Google Sheets 載入 ─────────────────────────────────────
 async function loadFromSheets(manual = false) {
   const cfg = loadCfg();
   setSyncStatus('loading', '同步中...');
-  if (manual) {
-    const icon = document.getElementById('refresh-icon');
-    const icon2 = document.getElementById('refresh-icon2');
-    if(icon) icon.classList.add('spinning');
-    if(icon2) icon2.classList.add('spinning');
-  }
+  if (manual) { document.getElementById('ri1').classList.add('spinning'); document.getElementById('ri2').classList.add('spinning'); }
 
-
-  document.getElementById('sheets-not-set').style.display = 'none';
-
-  // Google Sheets 公開 CSV 匯出網址
-  const encodedName = encodeURIComponent(cfg.sheetName);
-  const url = `https://docs.google.com/spreadsheets/d/${cfg.sheetId}/gviz/tq?tqx=out:csv&sheet=${encodedName}`;
-
+  const url = `https://docs.google.com/spreadsheets/d/${cfg.sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(cfg.sheetName)}`;
   try {
     const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
     cases = parseCSV(text);
-    usingDemo = false;
-    const now = new Date().toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'});
+    const now = new Date().toLocaleTimeString('zh-TW', { hour:'2-digit', minute:'2-digit' });
     setSyncStatus('ok', `已同步 ${now}`);
-    document.getElementById('last-sync-label').textContent = `最後同步：${now} · ${cases.length} 筆資料`;
-    updateCfgTime(now);
+    document.getElementById('last-sync-label').textContent = `最後同步：${now} · ${cases.length} 筆`;
+    const c = loadCfg(); c.lastSync = now; saveCfg(c);
+    document.getElementById('show-time').textContent = now;
+    document.getElementById('conn-status').textContent = '✓ 連線正常';
     renderAll();
-    if(manual) toast(`✓ 已同步 ${cases.length} 筆資料`);
+    if (manual) toast(`✓ 已同步 ${cases.length} 筆資料`);
   } catch(err) {
     setSyncStatus('err', '連線失敗');
     document.getElementById('last-sync-label').textContent = '同步失敗 — 請確認試算表已公開';
-    document.getElementById('cfg-show-status').textContent = '❌ 連線失敗：' + err.message;
-    if(cases.length === 0) { cases = DEMO; usingDemo = true; }
-    renderAll();
-    if(manual) toast('⚠ 無法讀取 Sheets，請確認試算表已設為公開檢視');
+    if (manual) toast('⚠ 無法讀取 Sheets，請至設定頁確認');
   }
-  stopSpin();
+  document.getElementById('ri1').classList.remove('spinning');
+  document.getElementById('ri2').classList.remove('spinning');
 }
 
-function stopSpin() {
-  const icon = document.getElementById('refresh-icon');
-  const icon2 = document.getElementById('refresh-icon2');
-  if(icon) icon.classList.remove('spinning');
-  if(icon2) icon2.classList.remove('spinning');
-}
-
-// 解析 CSV → cases 陣列
-// 欄位順序：A時間戳 B門市 C員工編號 D姓名 E會員編號 F用戶姓名 G電話 H SDS I困擾 J補充 K同意 L狀態 M手術日
+// ── CSV 解析（對應新欄位順序 A~X）──────────────────────────
+// A=時間戳記 B=門市 C=員工編號 D=轉介人員 E=用戶姓名 F=會員編號
+// G=電話 H=SDS I=困擾 J=補充 K=同意 L=負責業務 M=審核結果
+// N=審核日期 O=聯繫狀態 P=致電日期 Q=諮商日期 R=手術日期
+// S=備註 T=轉介獎金 U=手術獎金 V=合計 W=轉介發放 X=手術發放
 function parseCSV(text) {
-  const rows = text.trim().split('\n').slice(1); // 跳過標題列
+  const rows = text.trim().split('\n').slice(1);
   return rows.filter(r => r.trim()).map((row, i) => {
-    const cols = parseCSVRow(row);
+    const c = parseCSVRow(row);
     return {
-      id: 'R' + String(i+1).padStart(3,'0'),
-      date: cols[1] ? cols[1].slice(0,10).replace(/\//g,'-') : '',
-      store: cols[2] || '',
-      staff: cols[3] || '',
-      empid: cols[4] || '',
-      name: cols[5] || '',
-      mbrid: cols[6] || '',
-      phone: cols[7] || '',
-      sds: parseInt(cols[8]) || 0,
-      complaint: cols[9] || '',
-      note: cols[11] || '',
-      status: cols[12] || '待審核',
-      surgDate: cols[13] || '',
+      id:          'R' + String(i + 1).padStart(3, '0'),
+      date:        c[0] ? c[0].slice(0, 10).replace(/\//g, '-') : '',
+      store:       c[1]  || '',
+      empId:       c[2]  || '',
+      staff:       c[3]  || '',
+      userName:    c[4]  || '',
+      memberId:    c[5]  || '',
+      phone:       c[6]  || '',
+      sds:         c[7]  || '',
+      complaint:   c[8]  || '',
+      note:        c[9]  || '',
+      ciOwner:     c[11] || '',
+      review:      c[12] || '',   // M: 審核結果
+      reviewDate:  c[13] || '',   // N: 審核日期
+      contactStatus: c[14] || '', // O: 聯繫狀態
+      consultDate: c[16] || '',   // Q: 諮商日期
+      surgDate:    c[17] || '',   // R: 手術日期
+      refBonus:    parseFloat(c[19]) || 0,  // T: 轉介獎金
+      surgBonus:   parseFloat(c[20]) || 0,  // U: 手術獎金
+      totalBonus:  parseFloat(c[21]) || 0,  // V: 合計
+      refPaid:     c[22] || '',   // W: 轉介發放
+      surgPaid:    c[23] || '',   // X: 手術發放
     };
   });
 }
 
 function parseCSVRow(row) {
-  const cols = [];
-  let cur = '', inQ = false;
+  const cols = []; let cur = '', inQ = false;
   for (let i = 0; i < row.length; i++) {
-    const c = row[i];
-    if (c === '"') { inQ = !inQ; continue; }
-    if (c === ',' && !inQ) { cols.push(cur.trim()); cur = ''; continue; }
-    cur += c;
+    const ch = row[i];
+    if (ch === '"') { inQ = !inQ; continue; }
+    if (ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; continue; }
+    cur += ch;
   }
   cols.push(cur.trim());
   return cols;
 }
 
-// ── 設定儲存 ─────────────────────────────────
-function saveConfig() {
-  const id = document.getElementById('cfg-sheet-id').value.trim();
-  const name = document.getElementById('cfg-sheet-name').value.trim();
-  if (!id || !name) { toast('請填寫試算表 ID 和分頁名稱'); return; }
-  saveCfg({ sheetId: id, sheetName: name });
-  updateCfgDisplay();
-  const r = document.getElementById('cfg-result');
-  r.style.display = 'block';
-  r.innerHTML = '<div class="alert alert-info"><i class="ti ti-loader"></i><div>設定已儲存，測試連線中...</div></div>';
-  loadFromSheets(true).then(() => {
-    const cfg = loadCfg();
-    if (cfg.lastSync) {
-      r.innerHTML = '<div class="alert alert-success"><i class="ti ti-check"></i><div>連線成功！儀表板已開始讀取真實資料。</div></div>';
-    }
-  });
+// ── 渲染 ──────────────────────────────────────────────────
+function reviewBadge(r) {
+  if (r === '符合')    return '<span class="badge b-done">✓ 符合</span>';
+  if (r === '不符合')  return '<span class="badge b-fail">✗ 不符合</span>';
+  return '<span class="badge b-wait">待審核</span>';
 }
 
-function clearConfig() {
-  if (!confirm('確定清除設定？儀表板將改回顯示範例資料。')) return;
-  localStorage.removeItem(CFG_KEY);
-  updateCfgDisplay();
-  loadFromSheets();
-  toast('設定已清除');
-}
-
-function updateCfgDisplay() {
-  const cfg = loadCfg();
-  const isDefault = cfg.sheetId === DEFAULT_CFG.sheetId;
-  document.getElementById('cfg-show-id').textContent = cfg.sheetId + (isDefault ? '（內建預設）' : '');
-  document.getElementById('cfg-show-name').textContent = cfg.sheetName + (isDefault ? '（內建預設）' : '');
-  document.getElementById('cfg-sheet-id').value = cfg.sheetId;
-  document.getElementById('cfg-sheet-name').value = cfg.sheetName;
-}
-
-function updateCfgTime(t) {
-  const cfg = loadCfg(); cfg.lastSync = t; saveCfg(cfg);
-  document.getElementById('cfg-show-status').textContent = '✓ 連線正常';
-  document.getElementById('cfg-show-time').textContent = t;
-}
-
-// ── 同步狀態指示 ─────────────────────────────
-function setSyncStatus(state, text) {
-  const dot = document.getElementById('sync-dot');
-  const label = document.getElementById('sync-status');
-  dot.className = 'sync-dot' + (state === 'err' ? ' err' : state === 'loading' ? ' loading' : '');
-  label.textContent = text;
-}
-
-// ── 渲染 ─────────────────────────────────────
-function sb(s) {
-  const m = {待審核:'b-wait',已確認:'b-ok',已到診:'b-visit',已手術:'b-done',不符資格:'b-fail'};
-  return `<span class="badge ${m[s]||'b-wait'}">${s}</span>`;
-}
-function ns(c) {
-  return {待審核:'CI 24h 審核',已確認:'等待到診',已到診:'確認手術',已手術:'發放獎金',不符資格:'—'}[c.status]||'—';
+function contactBadge(s) {
+  if (!s) return '—';
+  const map = { '已安排諮商':'b-ok', '聯繫3次無接通':'b-fail', '諮商完成，考慮中':'b-consult', '諮商完成，不考慮CI':'b-fail', '已安排手術':'b-surgery' };
+  return `<span class="badge ${map[s]||'b-wait'}">${s}</span>`;
 }
 
 function renderAll() { renderDash(); renderCI(); renderBonus(); }
 
 function renderDash() {
-  const valid = cases.filter(c => !['不符資格','待審核'].includes(c.status));
-  const visited = cases.filter(c => ['已到診','已手術'].includes(c.status));
-  const surgery = cases.filter(c => c.status === '已手術');
-  const bonus = valid.length * 1000 + surgery.length * 2500;
+  const approved = cases.filter(c => c.review === '符合');
+  const surgery  = cases.filter(c => c.surgDate);
+  const pending  = cases.reduce((s, c) => {
+    if (c.refPaid === '待發放') s += c.refBonus;
+    if (c.surgPaid === '待發放') s += c.surgBonus;
+    return s;
+  }, 0);
+
   document.getElementById('d1').textContent = cases.length;
-  document.getElementById('d2').textContent = valid.length;
-  document.getElementById('d2n').textContent = `通過率 ${cases.length ? Math.round(valid.length/cases.length*100) : 0}%`;
-  document.getElementById('d3').textContent = '$' + bonus.toLocaleString();
+  document.getElementById('d2').textContent = approved.length;
+  document.getElementById('d2n').textContent = `通過率 ${cases.length ? Math.round(approved.length / cases.length * 100) : 0}%`;
+  document.getElementById('d3').textContent = '$' + pending.toLocaleString();
   document.getElementById('d4').textContent = surgery.length;
-  document.getElementById('d4n').textContent = `轉化率 ${visited.length ? Math.round(surgery.length/visited.length*100) : 0}%`;
-  const p = n => Math.min(100, Math.round(n/25*100)) + '%';
+  document.getElementById('d4n').textContent = `轉化率 ${approved.length ? Math.round(surgery.length / approved.length * 100) : 0}%`;
+
+  const p = n => Math.min(100, Math.round(n / 25 * 100)) + '%';
   document.getElementById('p1').style.width = p(cases.length);
-  document.getElementById('p2').style.width = p(visited.length);
+  document.getElementById('p2').style.width = p(approved.length);
   document.getElementById('p3').style.width = p(surgery.length);
   document.getElementById('p1t').textContent = `${cases.length}/25`;
-  document.getElementById('p2t').textContent = `${visited.length}/25`;
+  document.getElementById('p2t').textContent = `${approved.length}/25`;
   document.getElementById('p3t').textContent = `${surgery.length}/25`;
+
   document.getElementById('dash-tbody').innerHTML = cases.slice(0, 6).map(c => `<tr>
-    <td>${c.date.slice(5)}</td>
-    <td style="font-family:var(--mono);font-size:11px">${c.empid||'—'}</td>
-    <td>${c.store.replace('門市','')}</td>
-    <td style="font-family:var(--mono);font-size:11px">${c.mbrid||'—'}</td>
-    <td>${c.name}</td><td>${c.sds}%</td><td>${sb(c.status)}</td>
-  </tr>`).join('');
+    <td>${c.date.slice(5) || '—'}</td>
+    <td>${c.store}</td>
+    <td style="font-family:var(--mono);font-size:11px">${c.empId || '—'}</td>
+    <td>${c.userName}</td>
+    <td>${c.sds}%</td>
+    <td>${reviewBadge(c.review)}</td>
+    <td>${contactBadge(c.contactStatus)}</td>
+  </tr>`).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--text3);padding:16px">尚無資料</td></tr>';
 }
 
 function renderCI() {
-  const q = (document.getElementById('fil-q').value || '').toLowerCase();
-  const s = document.getElementById('fil-s').value;
-  const list = cases.filter(c => (!s || c.status === s) &&
-    (!q || c.name.includes(q) || c.store.includes(q) || c.staff.includes(q) || (c.empid||'').toLowerCase().includes(q)));
+  const q  = (document.getElementById('fil-q').value || '').toLowerCase();
+  const s  = document.getElementById('fil-s').value;
+  const os = document.getElementById('fil-o').value;
+  const list = cases.filter(c =>
+    (!s  || c.review === s || (s === '（待審核）' && !c.review)) &&
+    (!os || c.contactStatus === os) &&
+    (!q  || c.userName.includes(q) || c.store.includes(q) || c.staff.includes(q) || c.empId.toLowerCase().includes(q))
+  );
   document.getElementById('ci-tbody').innerHTML = list.map(c => `<tr>
-    <td>${c.date.slice(5)}</td>
-    <td style="font-family:var(--mono);font-size:11px">${c.empid||'—'}</td>
-    <td>${c.store.replace('門市','')}</td>
-    <td style="font-family:var(--mono);font-size:11px">${c.mbrid||'—'}</td>
-    <td>${c.name}</td><td>${c.sds}%</td><td>${sb(c.status)}</td>
-    <td><button class="btn btn-sm" onclick="advance('${c.id}')">推進</button></td>
-  </tr>`).join('') || '<tr><td colspan="8" style="text-align:center;color:var(--text3);padding:20px">無符合資料</td></tr>';
-  const sel = document.getElementById('sel-case');
-  sel.innerHTML = '<option value="">請選擇案件</option>' +
-    cases.filter(c => c.status !== '不符資格').map(c =>
-      `<option value="${c.id}">${c.name}（${c.store.replace('門市','')}）— ${c.status}</option>`).join('');
+    <td>${c.date.slice(5) || '—'}</td>
+    <td>${c.store}</td>
+    <td style="font-family:var(--mono);font-size:11px">${c.empId || '—'}</td>
+    <td>${c.staff}</td>
+    <td>${c.userName}</td>
+    <td>${c.sds}%</td>
+    <td>${reviewBadge(c.review)}</td>
+    <td>${c.ciOwner || '—'}</td>
+    <td>${contactBadge(c.contactStatus)}</td>
+    <td>${c.consultDate || '—'}</td>
+    <td>${c.surgDate || '—'}</td>
+  </tr>`).join('') || '<tr><td colspan="11" style="text-align:center;color:var(--text3);padding:16px">無符合資料</td></tr>';
 }
 
 function renderBonus() {
-  const valid = cases.filter(c => !['不符資格','待審核'].includes(c.status));
-  let total = 0;
-  document.getElementById('bonus-list').innerHTML = valid.length ? valid.map(c => {
-    const ref = 1000, surg = c.status === '已手術' ? 2500 : 0, amt = ref + surg;
-    total += amt;
-    return `<div class="bonus-row">
+  const refPending  = cases.filter(c => c.refBonus > 0  && c.refPaid  === '待發放');
+  const surgPending = cases.filter(c => c.surgBonus > 0 && c.surgPaid === '待發放');
+  const refTotal    = refPending.reduce((s, c)  => s + c.refBonus, 0);
+  const surgTotal   = surgPending.reduce((s, c) => s + c.surgBonus, 0);
+
+  document.getElementById('bs1').textContent = '$' + refTotal.toLocaleString();
+  document.getElementById('bs2').textContent = '$' + surgTotal.toLocaleString();
+  document.getElementById('bs3').textContent = '$' + (refTotal + surgTotal).toLocaleString();
+
+  const makeList = (list, type) => list.length ? list.map(c => `
+    <div class="bonus-row">
       <div>
-        <div class="bonus-name">${c.name}
-          <span style="font-size:11px;color:var(--text3);font-weight:400"> — ${c.store.replace('門市','')} · ${c.staff}
-          <span style="font-family:var(--mono)">${c.empid||''}</span></span>
+        <div style="font-size:13px;font-weight:500">${c.userName}
+          <span style="font-size:11px;color:var(--text3);font-weight:400"> — ${c.store} · ${c.staff} <span style="font-family:var(--mono)">${c.empId || ''}</span></span>
         </div>
-        <div class="bonus-sub">轉介 $1,000${surg ? ` + 手術 $${surg.toLocaleString()}` : ' （手術待確認）'}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:1px">${type} · ${c.reviewDate || c.surgDate || '—'}</div>
       </div>
-      <div class="bonus-amt" style="color:${surg?'var(--green)':'var(--amber)'}">$${amt.toLocaleString()}</div>
-    </div>`;
-  }).join('') : '<div style="text-align:center;color:var(--text3);padding:20px;font-size:13px">尚無符合資格的獎金紀錄</div>';
-  document.getElementById('bonus-total').textContent = '$' + total.toLocaleString();
+      <div style="font-weight:600;color:var(--green);font-size:13px">$${(type === '轉介獎金' ? c.refBonus : c.surgBonus).toLocaleString()}</div>
+    </div>`).join('') : '<div style="text-align:center;color:var(--text3);padding:16px;font-size:13px">無待發放紀錄</div>';
+
+  document.getElementById('ref-bonus-list').innerHTML  = makeList(refPending,  '轉介獎金');
+  document.getElementById('surg-bonus-list').innerHTML = makeList(surgPending, '手術獎金');
 }
 
-// ── 狀態推進 ─────────────────────────────────
-// 注意：推進結果寫回試算表需要 Apps Script；
-// 這裡先在本機更新顯示，並提示用戶手動更新試算表
-function advance(id) {
-  const c = cases.find(x => x.id === id); if (!c) return;
-  const ord = ['待審核','已確認','已到診','已手術'];
-  const i = ord.indexOf(c.status); if (i < 0 || i >= 3) return;
-  const next = ord[i + 1];
-  if (!confirm(`將【${c.name}】狀態更新為「${next}」？\n\n請記得同步在 Google Sheets 試算表 L 欄手動更新狀態。`)) return;
-  c.status = next;
-  if (next === '已手術') c.surgDate = new Date().toISOString().slice(0, 10);
-  renderAll();
-  toast(`✓ 已更新為「${next}」— 請同步更新試算表`);
-}
-
-// ── AI 功能 ──────────────────────────────────
+// ── AI 功能 ───────────────────────────────────────────────
 async function callAI(prompt) {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 400,
-      messages: [{ role: 'user', content: prompt }] })
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 400, messages: [{ role: 'user', content: prompt }] })
   });
   const d = await r.json();
   return d.content?.[0]?.text || '無法取得回應';
@@ -713,78 +541,78 @@ async function aiCheck() {
 }
 
 function submitCase() {
-  const id = 'C' + String(cases.length + 1).padStart(3, '0');
-  cases.unshift({
-    id, date: new Date().toISOString().slice(0, 10),
-    store: document.getElementById('f-store').value,
-    empid: document.getElementById('f-empid').value,
-    staff: document.getElementById('f-staff').value,
-    mbrid: document.getElementById('f-mbrid').value,
-    name: document.getElementById('f-name').value,
-    phone: document.getElementById('f-phone').value,
-    sds: parseInt(document.getElementById('f-sds').value) || 0,
-    complaint: document.getElementById('f-complaint').value,
-    note: document.getElementById('f-note').value,
-    status: '待審核', surgDate: ''
-  });
+  toast('✓ 已記錄！請同步填寫 Google Forms 讓資料進入試算表');
   document.getElementById('submit-ok').style.display = 'block';
   document.getElementById('submit-btn').disabled = true;
   document.getElementById('ai-wrap').style.display = 'none';
-  ['f-store','f-empid','f-staff','f-mbrid','f-name','f-phone','f-sds','f-note'].forEach(i => document.getElementById(i).value = '');
+  ['f-store','f-empid','f-staff','f-name','f-mbrid','f-phone','f-sds','f-note'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('f-complaint').value = '';
   document.getElementById('f-consent').checked = false;
-  renderAll();
-  toast(`✓ 已記錄！請同步填寫 Google Forms 讓資料進入試算表`);
   setTimeout(() => document.getElementById('submit-ok').style.display = 'none', 5000);
 }
 
-async function genNotify() {
-  const id = document.getElementById('sel-case').value;
-  if (!id) { toast('請先選擇案件'); return; }
-  const c = cases.find(x => x.id === id); if (!c) return;
-  const w = document.getElementById('notify-wrap'); const o = document.getElementById('notify-out');
-  w.style.display = 'block'; o.innerHTML = '<span class="spin"></span>生成中...';
-  try { o.textContent = await callAI(`寫LINE通知給${c.store}${c.staff}（員工${c.empid}），告知用戶${c.name}狀態為「${c.status}」。繁體中文80字內，友善專業，說明下一步。`);
-  } catch(e) { o.textContent = '⚠ 無法連線'; }
-}
-
 async function genReport() {
-  const valid = cases.filter(c => !['不符資格','待審核'].includes(c.status));
-  const surgery = cases.filter(c => c.status === '已手術');
-  const bonus = valid.length * 1000 + surgery.length * 2500;
+  const approved = cases.filter(c => c.review === '符合');
+  const surgery  = cases.filter(c => c.surgDate);
+  const pending  = cases.reduce((s, c) => s + (c.refPaid === '待發放' ? c.refBonus : 0) + (c.surgPaid === '待發放' ? c.surgBonus : 0), 0);
   const w = document.getElementById('report-wrap'); const o = document.getElementById('report-out');
   w.style.display = 'block'; o.innerHTML = '<span class="spin"></span>生成中...';
-  try { o.textContent = await callAI(`繁體中文150字內條列CI轉介月報給主管。轉介${cases.length}件、通過${valid.length}件、到診${cases.filter(c=>['已到診','已手術'].includes(c.status)).length}件、手術${surgery.length}件、待發獎金$${bonus.toLocaleString()}`);
+  try {
+    o.textContent = await callAI(`繁體中文150字內條列CI轉介月報給主管。轉介${cases.length}件、審核通過${approved.length}件、手術${surgery.length}件、待發獎金$${pending.toLocaleString()}`);
   } catch(e) { o.textContent = '⚠ 無法連線'; }
 }
 
-// ── 匯出 ─────────────────────────────────────
 function exportCSV() {
-  const h = ['案件ID','日期','員工編號','門市','會員編號','用戶','SDS%','主訴','狀態','轉介獎金','手術獎金'];
-  const rows = cases.map(c => [c.id, c.date, c.empid, c.store, c.mbrid||'', c.name, c.sds, c.complaint, c.status,
-    !['不符資格','待審核'].includes(c.status) ? 1000 : 0,
-    c.status === '已手術' ? 2500 : 0]);
+  const h = ['填表日期','門市','員工編號','轉介人員','用戶姓名','SDS%','主要困擾','審核結果','負責業務','聯繫狀態','諮商日期','手術日期','轉介獎金','手術獎金','合計','轉介發放','手術發放'];
+  const rows = cases.map(c => [c.date, c.store, c.empId, c.staff, c.userName, c.sds, c.complaint, c.review, c.ciOwner, c.contactStatus, c.consultDate, c.surgDate, c.refBonus, c.surgBonus, c.totalBonus, c.refPaid, c.surgPaid]);
   const csv = [h, ...rows].map(r => r.join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
-  a.download = `CI轉介結算_${new Date().toISOString().slice(0,7)}.csv`;
+  a.download = `CI轉介結算_${new Date().toISOString().slice(0, 7)}.csv`;
   a.click(); toast('✓ CSV 已下載');
 }
 
 function copySummary() {
-  const valid = cases.filter(c => !['不符資格','待審核'].includes(c.status));
-  const surgery = cases.filter(c => c.status === '已手術');
-  const bonus = valid.length * 1000 + surgery.length * 2500;
-  navigator.clipboard.writeText(
-    `CI轉介 ${new Date().toISOString().slice(0,7)} 結算\n轉介：${cases.length}件｜通過：${valid.length}件｜手術：${surgery.length}件\n待發獎金：$${bonus.toLocaleString()}`
-  ).then(() => toast('✓ 已複製！'));
+  const approved = cases.filter(c => c.review === '符合');
+  const surgery  = cases.filter(c => c.surgDate);
+  const pending  = cases.reduce((s, c) => s + (c.refPaid === '待發放' ? c.refBonus : 0) + (c.surgPaid === '待發放' ? c.surgBonus : 0), 0);
+  navigator.clipboard.writeText(`CI轉介 ${new Date().toISOString().slice(0,7)} 結算\n轉介：${cases.length}件｜通過：${approved.length}件｜手術：${surgery.length}件\n待發獎金：$${pending.toLocaleString()}`).then(() => toast('✓ 已複製！'));
 }
 
-function copyEl(id) {
-  navigator.clipboard.writeText(document.getElementById(id).textContent).then(() => toast('✓ 已複製'));
+function copyEl(id) { navigator.clipboard.writeText(document.getElementById(id).textContent).then(() => toast('✓ 已複製')); }
+
+// ── 設定 ──────────────────────────────────────────────────
+function saveConfig() {
+  const id = document.getElementById('cfg-id').value.trim();
+  const name = document.getElementById('cfg-name').value.trim();
+  if (!id || !name) { toast('請填寫試算表 ID 和分頁名稱'); return; }
+  saveCfg({ sheetId: id, sheetName: name });
+  updateCfgDisplay();
+  loadFromSheets(true);
 }
 
-// ── 頁面切換 ─────────────────────────────────
+function clearConfig() {
+  if (!confirm('清除後將恢復預設試算表設定')) return;
+  localStorage.removeItem(CFG_KEY);
+  updateCfgDisplay();
+  loadFromSheets();
+  toast('已恢復預設設定');
+}
+
+function updateCfgDisplay() {
+  const cfg = loadCfg();
+  document.getElementById('show-id').textContent = cfg.sheetId;
+  document.getElementById('show-name').textContent = cfg.sheetName;
+  document.getElementById('cfg-id').value = cfg.sheetId;
+  document.getElementById('cfg-name').value = cfg.sheetName;
+}
+
+function setSyncStatus(state, text) {
+  const dot = document.getElementById('sync-dot');
+  dot.className = 'sync-dot' + (state === 'err' ? ' err' : state === 'loading' ? ' loading' : '');
+  document.getElementById('sync-status').textContent = text;
+}
+
 function sw(t, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -795,7 +623,6 @@ function sw(t, el) {
   if (t === 'dash') renderDash();
 }
 
-// ── Toast ────────────────────────────────────
 let toastTimer;
 function toast(msg) {
   const el = document.getElementById('toast');
@@ -804,11 +631,10 @@ function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
 }
 
-// ── 初始化 ───────────────────────────────────
+// ── 初始化 ────────────────────────────────────────────────
 updateCfgDisplay();
 loadFromSheets();
-// 每5分鐘自動重新整理
-setInterval(() => loadFromSheets(), 5 * 60 * 1000);
+setInterval(() => loadFromSheets(), 5 * 60 * 1000); // 每5分鐘自動同步
 </script>
 </body>
 </html>
