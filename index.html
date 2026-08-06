@@ -598,7 +598,7 @@
 .how-grid{display:grid;grid-template-columns:365px 1fr}
 .how-steps{padding:20px 18px;background:#FCFAF3;border-right:1px solid #ECE5D3}
 .how-stage{padding:16px 14px;display:grid;place-items:center;background:rgba(22,183,154,.04)}
-.how-stage svg{width:100%;height:auto;display:block;max-width:680px}
+.how-stage svg{width:100%;height:auto;display:block;max-width:760px}
 
 .how-h{font-size:.74rem;font-weight:700;letter-spacing:2px;color:#B08D3F;margin-bottom:12px}
 .stp{
@@ -627,6 +627,8 @@
 .how .sg[data-step],.how .zp[data-step]{opacity:.14}
 .how .bl[data-step]{opacity:.1}
 .how .mk[data-step]{opacity:.22;transform-box:fill-box;transform-origin:center;transform:scale(.88)}
+.how .dvc{opacity:.34;transition:opacity .35s ease}
+.how[data-active="3"] .dvc{opacity:1}
 
 .stp{cursor:pointer;outline:none}
 .stp:hover{background:rgba(22,183,154,.07)}
@@ -980,92 +982,203 @@
 
         <!-- 圖示 -->
         <div class="how-stage">
-          <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" role="img"
-               aria-label="人工電子耳運作六步驟：麥克風收音、處理器編碼、導線傳到線圈、磁感應傳至植入體、電極刺激聽神經、大腦產生聽覺">
+          <svg viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人工電子耳運作六步驟：耳部剖面示意圖">
+          <defs>
+          <linearGradient id="skin" x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0" stop-color="#FDF2E6"/><stop offset="1" stop-color="#F0D9BE"/>
+          </linearGradient>
+          <linearGradient id="earG" x1="0" y1="0" x2="0.4" y2="1">
+          <stop offset="0" stop-color="#FCE9D6"/><stop offset="1" stop-color="#EAC5A0"/>
+          </linearGradient>
+          <linearGradient id="canalG" x1="0" y1="0" x2="0.2" y2="1">
+          <stop offset="0" stop-color="#EFCEA9"/><stop offset="0.5" stop-color="#DDAE81"/><stop offset="1" stop-color="#C9946A"/>
+          </linearGradient>
+          <linearGradient id="hookG" x1="0" y1="0" x2="0.4" y2="1">
+          <stop offset="0" stop-color="#2E4A44"/><stop offset="1" stop-color="#0A2622"/>
+          </linearGradient>
+          <linearGradient id="dev" x1="0" y1="0" x2="0.6" y2="1">
+          <stop offset="0" stop-color="#1BC6A6"/><stop offset="1" stop-color="#0A7360"/>
+          </linearGradient>
+          <linearGradient id="boneG" x1="0" y1="0" x2="0.4" y2="1">
+          <stop offset="0" stop-color="#FBF0DF"/><stop offset="1" stop-color="#E6CDA8"/>
+          </linearGradient>
+          <radialGradient id="cortex" cx="0.5" cy="0.5" r="0.62">
+          <stop offset="0" stop-color="#16B79A" stop-opacity="0.9"/>
+          <stop offset="1" stop-color="#16B79A" stop-opacity="0.18"/>
+          </radialGradient>
+          <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="2.5" stdDeviation="3.2" flood-color="#8A6A45" flood-opacity="0.25"/>
+          </filter>
+          <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+          <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          </defs>
 
-            <!-- 頭部 -->
-            <path d="M212,34 C284,34 330,86 330,150 C330,194 316,222 296,240 C284,250 278,262 278,276 L278,308
-                     L118,308 L118,262 C118,246 110,236 96,222 C76,202 64,178 64,148 C64,84 128,34 212,34 Z"
-                  fill="#FDF6EC" stroke="#E4D8C2" stroke-width="2"/>
+          <!-- 顳骨底色（頭部內部） -->
+          <path d="M262,60 C420,34 600,44 700,74 L700,452 C540,468 360,458 268,436
+          C232,392 226,300 236,200 C242,140 250,92 262,60 Z" fill="url(#skin)" opacity=".45"/>
 
-            <!-- 聽覺皮質（步驟6） -->
-            <path class="bl" data-step="6" d="M112,96 C138,74 176,72 198,92 C214,106 212,130 194,140 C172,152 134,146 118,128 C108,117 105,104 112,96 Z" fill="#0E9B81"/>
-            <path d="M112,96 C138,74 176,72 198,92 C214,106 212,130 194,140 C172,152 134,146 118,128 C108,117 105,104 112,96 Z"
-                  fill="none" stroke="#C9BBA2" stroke-width="1.6" stroke-dasharray="4 4"/>
-            <text x="155" y="166" text-anchor="middle" font-size="11" fill="#0E9B81" font-weight="800">聽覺皮質</text>
+          <!-- ===== 聲音處理器（掛在耳後，透過半透明耳廓可見） ===== -->
+          <g filter="url(#soft)">
+          <path class="sg" data-step="2"
+          d="M198,206 C212,200 224,210 225,226 L228,272 C229,288 220,297 209,294 C198,291 194,280 193,269 L190,220 Z"
+          fill="none" stroke="#FFC400" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M198,206 C212,200 224,210 225,226 L228,272 C229,288 220,297 209,294 C198,291 194,280 193,269 L190,220 Z"
+          fill="url(#dev)"/>
+          <circle cx="208" cy="220" r="4.4" fill="#fff" opacity=".95"/>
+          <circle cx="210" cy="234" r="4.4" fill="#fff" opacity=".95"/>
+          <rect x="201" y="250" width="17" height="4.2" rx="2.1" fill="#fff" opacity=".5"/>
+          <rect x="202" y="261" width="17" height="4.2" rx="2.1" fill="#fff" opacity=".5"/>
+          </g>
 
-            <!-- 耳廓 -->
-            <path d="M328,148 C350,140 364,154 362,174 C360,196 344,212 328,214 C320,215 316,208 318,198
-                     C322,180 316,164 324,154 Z" fill="#F6E7D6" stroke="#E0C9AE" stroke-width="1.8"/>
+          <!-- ===== 耳廓（左側，剖開露出耳道） ===== -->
+          <g filter="url(#soft)">
+          <path d="M268,178 C232,168 202,196 200,244 C198,296 216,344 244,364
+          C262,377 284,371 286,352 C288,330 272,314 272,290
+          C272,264 284,236 278,208 C275,190 274,180 268,178 Z"
+          fill="url(#earG)" fill-opacity=".7" stroke="#D9AF83" stroke-width="2.4"/>
+          <path d="M262,204 C236,198 220,224 220,254 C220,288 234,322 254,338"
+          fill="none" stroke="#D9AF83" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+          <path d="M256,240 C242,238 234,254 236,270 C238,288 248,300 256,304"
+          fill="none" stroke="#D9AF83" stroke-width="1.9" stroke-linecap="round" opacity=".75"/>
+          <ellipse cx="250" cy="364" rx="12" ry="10" fill="#F7DEC3" stroke="#D9AF83" stroke-width="1.8"/>
+          </g>
 
-            <!-- 耳蝸 -->
-            <g transform="translate(206,196) scale(.6)">
-              <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
-                    fill="none" stroke="#D8CFB4" stroke-width="17" stroke-linecap="round"/>
-              <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
-                    fill="none" stroke="#FBF5EA" stroke-width="10" stroke-linecap="round"/>
-              <path class="sg" data-step="5" d="M-19,40 C-20,48 -20,52 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
-                    fill="none" stroke="#0E9B81" stroke-width="4.2" stroke-linecap="round"/>
-              <g class="zp" data-step="5">
-                <circle cx="-19" cy="58" r="4.8" fill="#FFC400"/><circle cx="-6" cy="92" r="4.8" fill="#FFC400"/>
-                <circle cx="32" cy="108" r="4.8" fill="#FFC400"/><circle cx="66" cy="94" r="4.8" fill="#FFC400"/>
-                <circle cx="74" cy="64" r="4.8" fill="#FFC400"/><circle cx="58" cy="38" r="4.8" fill="#FFC400"/>
-                <circle cx="20" cy="48" r="4.8" fill="#FFC400"/>
-              </g>
-            </g>
-            <text x="206" y="272" text-anchor="middle" font-size="11" fill="#0E9B81" font-weight="800">耳蝸 · 電極陣列</text>
+          <!-- 耳勾（繞過耳廓上緣，位於耳前） -->
+          <g filter="url(#soft)">
+          <path d="M210,202 C202,184 216,172 236,175 C250,177 258,181 264,190"
+          fill="none" stroke="url(#hookG)" stroke-width="7.6" stroke-linecap="round"/>
+          <path d="M210,202 C202,184 216,172 236,175 C250,177 258,181 264,190"
+          fill="none" stroke="#4E6E66" stroke-width="2.6" stroke-linecap="round" opacity=".55"/>
+          </g>
 
-            <!-- 聽覺神經（步驟6） -->
-            <path class="sg" data-step="6" d="M196,206 C176,194 162,174 158,150"
-                  fill="none" stroke="#0E9B81" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="8 6"/>
-            <text x="130" y="204" text-anchor="middle" font-size="10.5" fill="#6B7280" font-weight="700">聽覺神經</text>
+          <!-- ===== 外耳道 ===== -->
+          <path d="M274,244 C300,240 328,248 351,252 L353,288 C328,293 300,298 274,298
+          C269,286 268,258 274,244 Z" fill="url(#canalG)"/>
+          <path d="M278,252 C302,248 326,255 348,259" fill="none" stroke="#F3DCC0" stroke-width="2.6" opacity=".7" stroke-linecap="round"/>
+          <path d="M278,292 C302,290 326,287 349,284" fill="none" stroke="#B98456" stroke-width="2.2" opacity=".5" stroke-linecap="round"/>
+          <text x="308" y="322" text-anchor="middle" font-size="11" fill="#7C5836" font-weight="700">外耳道</text>
 
-            <!-- 接收－刺激器 + 電極導線（步驟5） -->
-            <rect x="264" y="106" width="34" height="26" rx="8" fill="#0E9B81" opacity=".92"/>
-            <text x="248" y="98" text-anchor="middle" font-size="10.5" fill="#0E9B81" font-weight="800">內部處理器</text>
-            <path class="sg" data-step="5" d="M278,132 C272,156 262,176 248,192"
-                  fill="none" stroke="#0E9B81" stroke-width="3.2" stroke-linecap="round"/>
+          <!-- 鼓膜 -->
+          <path d="M351,250 C357,262 358,278 353,289" fill="none" stroke="#C08C5E" stroke-width="5" stroke-linecap="round"/>
+          <path d="M352,256 C356,265 357,276 354,284" fill="none" stroke="#EBCBA6" stroke-width="1.7" stroke-linecap="round" opacity=".8"/>
+          <text x="368" y="308" text-anchor="middle" font-size="10.5" fill="#7C5836" font-weight="700">鼓膜</text>
 
-            <!-- 外感應線圈 -->
-            <circle cx="322" cy="100" r="15" fill="none" stroke="#0E9B81" stroke-width="4"/>
-            <circle cx="322" cy="100" r="6" fill="#0E9B81"/>
-            <text x="368" y="72" text-anchor="middle" font-size="10.5" fill="#0E9B81" font-weight="800">外感應線圈</text>
+          <!-- ===== 中耳聽小骨 ===== -->
+          <g fill="url(#boneG)" stroke="#BE9C70" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
+          <!-- 槌骨：頭 + 柄（接鼓膜） -->
+          <ellipse cx="376" cy="240" rx="12.5" ry="10.5"/>
+          <path d="M372,249 C368,260 360,270 353,278" fill="none" stroke="#BE9C70" stroke-width="5.5"/>
+          <path d="M372,249 C368,260 360,270 353,278" fill="none" stroke="#F3E3CA" stroke-width="2.4"/>
+          <!-- 砧骨：體 + 長突 -->
+          <ellipse cx="402" cy="238" rx="13" ry="11"/>
+          <path d="M394,230 C388,225 384,226 382,230" fill="none" stroke="#BE9C70" stroke-width="4"/>
+          <path d="M405,248 C409,256 411,262 413,268" fill="none" stroke="#BE9C70" stroke-width="4.8"/>
+          <path d="M405,248 C409,256 411,262 413,268" fill="none" stroke="#F3E3CA" stroke-width="2"/>
+          <!-- 鐙骨：頭 + 兩腳 + 底板 -->
+          <circle cx="419" cy="271" r="4.6"/>
+          <path d="M423,268 C436,258 450,260 456,266" fill="none" stroke="#BE9C70" stroke-width="3.6"/>
+          <path d="M423,275 C436,280 450,280 456,278" fill="none" stroke="#BE9C70" stroke-width="3.6"/>
+          <path d="M454,260 C460,262 462,268 462,272 C462,277 460,283 454,285 C451,278 451,267 454,260 Z"/>
+          </g>
+          <path d="M462,272 L472,274" stroke="#C08C5E" stroke-width="5" stroke-linecap="round"/>
+          <text x="396" y="212" text-anchor="middle" font-size="10.5" fill="#9A6E45" font-weight="700">聽小骨</text>
+          <text x="512" y="248" text-anchor="middle" font-size="10.5" fill="#7C5836" font-weight="700">圓窗</text>
 
-            <!-- 磁感應（步驟4） -->
-            <g class="sg" data-step="4" stroke="#FFC400" stroke-width="3.2" fill="none" stroke-linecap="round">
-              <path d="M310,90 A15,15 0 0 0 310,112"/>
-              <path d="M304,84 A23,23 0 0 0 304,118"/>
-            </g>
+          <!-- ===== 耳蝸 ===== -->
+          <g transform="translate(470.3,364.1) scale(.78) rotate(-120.4)">
+          <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
+          fill="none" stroke="#D9B98E" stroke-width="22" stroke-linecap="round"/>
+          <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
+          fill="none" stroke="#FCF2E3" stroke-width="13" stroke-linecap="round"/>
+          <path class="sg" data-step="5" d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79"
+          fill="none" stroke="#0E9B81" stroke-width="5.6" stroke-linecap="round"/>
+          <g class="zp" data-step="5">
+          <circle cx="100" cy="60" r="6" fill="#FFC400"/><circle cx="72" cy="0" r="6" fill="#FFC400"/>
+          <circle cx="-18" cy="34" r="6" fill="#FFC400"/><circle cx="-13" cy="88" r="6" fill="#FFC400"/>
+          <circle cx="40" cy="107" r="6" fill="#FFC400"/><circle cx="74" cy="66" r="6" fill="#FFC400"/>
+          <circle cx="46" cy="35" r="6" fill="#FFC400"/><circle cx="16" cy="58" r="6" fill="#FFC400"/>
+          <circle cx="34" cy="79" r="6" fill="#FFC400"/>
+          </g>
+          </g>
 
-            <!-- 導線（步驟3） -->
-            <path class="sg" data-step="3" d="M336,146 C331,130 327,116 323,107"
-                  fill="none" stroke="#0E9B81" stroke-width="3.2" stroke-linecap="round"/>
+          <!-- ===== 聽覺神經 → 大腦 ===== -->
+          <path class="sg" data-step="6" d="M528,344 C546,346 558,344 568,340"
+          fill="none" stroke="#0E9B81" stroke-width="4.6" stroke-linecap="round" stroke-dasharray="9 7"/>
+          <g transform="translate(-26,4)">
+          <!-- 聽覺皮質區（單一標註區塊） -->
+          <path d="M596,306 C616,286 664,284 688,304 C706,318 700,352 668,362 C632,373 600,358 592,338 C586,324 588,314 596,306 Z"
+          fill="#EFE0C8" stroke="#C2A67E" stroke-width="2"/>
+          <g fill="none" stroke="#C2A67E" stroke-width="1.5" stroke-linecap="round" opacity=".6">
+          <path d="M606,318 C620,308 644,308 656,318"/>
+          <path d="M660,314 C672,308 686,312 692,322"/>
+          <path d="M600,340 C616,330 642,330 654,340"/>
+          <path d="M660,344 C674,338 686,342 692,350"/>
+          </g>
+          <path class="bl" data-step="6"
+          d="M596,306 C616,286 664,284 688,304 C706,318 700,352 668,362 C632,373 600,358 592,338 C586,324 588,314 596,306 Z"
+          fill="url(#cortex)" filter="url(#glow)"/>
+          <path d="M596,306 C616,286 664,284 688,304 C706,318 700,352 668,362 C632,373 600,358 592,338 C586,324 588,314 596,306 Z"
+          fill="none" stroke="#0E9B81" stroke-width="2" stroke-dasharray="5 4" opacity=".7"/>
+          </g>
 
-            <!-- 聲音處理器（步驟2） -->
-            <path class="sg" data-step="2" d="M340,150 C352,148 362,156 362,168 L362,196 C362,206 354,212 346,210 C338,208 336,200 336,192 L336,162 Z"
-              fill="none" stroke="#FFC400" stroke-width="7" stroke-linejoin="round"/>
-        <path d="M340,150 C352,148 362,156 362,168 L362,196 C362,206 354,212 346,210 C338,208 336,200 336,192 L336,162 Z" fill="#0E9B81"/>
-            <circle cx="349" cy="161" r="4.6" fill="#fff" opacity=".9"/>
-            <rect x="342" y="174" width="14" height="3.6" rx="1.8" fill="#fff" opacity=".55"/>
-            <rect x="342" y="182" width="14" height="3.6" rx="1.8" fill="#fff" opacity=".55"/>
-            <text x="360" y="238" text-anchor="middle" font-size="10.5" fill="#0E9B81" font-weight="800">聲音處理器</text>
+          <!-- ===== 內部處理器（皮下）+ 電極導線 ===== -->
+          <path class="sg" data-step="5" d="M368,146 C430,176 472,214 478,262"
+          fill="none" stroke="#0E9B81" stroke-width="4.6" stroke-linecap="round"/>
+          <g>
+          <rect x="306" y="118" width="62" height="36" rx="16" fill="url(#dev)" opacity=".52"/>
+          <rect x="306" y="118" width="62" height="36" rx="16" fill="none" stroke="#0E9B81" stroke-width="2.4" stroke-dasharray="6 4"/>
+          </g>
 
-            <!-- 聲音（步驟1） -->
-            <g class="sg" data-step="1" fill="none" stroke="#0E9B81" stroke-width="3.2" stroke-linecap="round">
-              <path d="M406,150 A20,20 0 0 1 406,182"/>
-              <path d="M418,140 A31,31 0 0 1 418,192"/>
-            </g>
-            <text x="428" y="212" text-anchor="middle" font-size="10.5" fill="#6B7280" font-weight="700">聲音</text>
+          <!-- ===== 外感應線圈 ===== -->
+          <g class="dvc" data-step="3">
+            <circle cx="272" cy="136" r="24" fill="#F8F3EB" stroke="#0E9B81" stroke-width="6"/>
+            <circle cx="272" cy="136" r="10" fill="url(#dev)"/>
+          </g>
+          <!-- 導線：處理器 → 線圈 -->
+          <path d="M212,198 C220,170 238,148 252,140" fill="none" stroke="#0A7360" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+          <path class="sg" data-step="3" d="M212,198 C220,170 238,148 252,140"
+          fill="none" stroke="#0E9B81" stroke-width="4.4" stroke-linecap="round"/>
+          <!-- 磁感應 -->
+          <g class="sg" data-step="4" stroke="#FFC400" stroke-width="4.4" fill="none" stroke-linecap="round">
+          <path d="M290,120 A20,20 0 0 1 290,154"/>
+          <path d="M299,110 A30,30 0 0 1 299,164"/>
+          </g>
 
-            <!-- 步驟標記 -->
-            <g font-size="11" font-weight="800" text-anchor="middle">
-              <g class="mk" data-step="1"><circle cx="392" cy="146" r="12" fill="#B08D3F"/><text x="392" y="150" fill="#fff">1</text></g>
-              <g class="mk" data-step="2"><circle cx="378" cy="196" r="12" fill="#B08D3F"/><text x="378" y="200" fill="#fff">2</text></g>
-              <g class="mk" data-step="3"><circle cx="356" cy="122" r="12" fill="#B08D3F"/><text x="356" y="126" fill="#fff">3</text></g>
-              <g class="mk" data-step="4"><circle cx="298" cy="76" r="12" fill="#B08D3F"/><text x="298" y="80" fill="#fff">4</text></g>
-              <g class="mk" data-step="5"><circle cx="268" cy="252" r="12" fill="#B08D3F"/><text x="268" y="256" fill="#fff">5</text></g>
-              <g class="mk" data-step="6"><circle cx="100" cy="150" r="12" fill="#B08D3F"/><text x="100" y="154" fill="#fff">6</text></g>
-            </g>
+          <!-- ===== 聲音 ===== -->
+          <g class="sg" data-step="1" fill="none" stroke="#0E9B81" stroke-width="4.4" stroke-linecap="round">
+          <path d="M150,224 A24,24 0 0 0 150,266"/>
+          <path d="M134,210 A38,38 0 0 0 134,280"/>
+          <path d="M118,196 A52,52 0 0 0 118,294"/>
+          </g>
+
+          <!-- ===== 標示 ===== -->
+          <g stroke="#BFAA8C" stroke-width="1.3" fill="none">
+          <path d="M258,86 L270,112"/>
+          <path d="M400,74 L344,116"/>
+          <path d="M158,348 L196,292"/>
+          <path d="M486,412 L494,352"/>
+          <path d="M600,414 L616,376"/>
+          </g>
+          <g font-size="13" font-weight="800" fill="#0E9B81">
+          <g class="mk" data-step="3"><circle cx="214" cy="76" r="13" fill="#B08D3F"/><text x="214" y="81" fill="#fff" font-size="12" text-anchor="middle">3</text></g>
+          <text x="232" y="81">外感應線圈</text>
+
+          <g class="mk" data-step="4"><circle cx="404" cy="62" r="13" fill="#B08D3F"/><text x="404" y="67" fill="#fff" font-size="12" text-anchor="middle">4</text></g>
+          <text x="422" y="67">內部處理器</text>
+
+          <g class="mk" data-step="2"><circle cx="88" cy="356" r="13" fill="#B08D3F"/><text x="88" y="361" fill="#fff" font-size="12" text-anchor="middle">2</text></g>
+          <text x="106" y="361">聲音處理器</text>
+
+          <g class="mk" data-step="5"><circle cx="420" cy="424" r="13" fill="#B08D3F"/><text x="420" y="429" fill="#fff" font-size="12" text-anchor="middle">5</text></g>
+          <text x="438" y="429">耳蝸 · 電極陣列</text>
+
+          <g class="mk" data-step="6"><circle cx="576" cy="420" r="13" fill="#B08D3F"/><text x="576" y="425" fill="#fff" font-size="12" text-anchor="middle">6</text></g>
+          <text x="594" y="425">聽覺皮質</text>
+
+          <g class="mk" data-step="1"><circle cx="104" cy="152" r="13" fill="#B08D3F"/><text x="104" y="157" fill="#fff" font-size="12" text-anchor="middle">1</text></g>
+          <text x="122" y="157" fill="#6B7280" font-weight="700">聲音</text>
+          </g>
           </svg>
         </div>
       </div>
@@ -1104,37 +1217,37 @@
 
             <!-- 放大後的聲波（較大） -->
             <g fill="none" stroke="#0F5887" stroke-width="4" stroke-linecap="round">
-              <path class="bigw1" d="M148,100 A34,34 0 0 1 148,164"/>
-              <path class="bigw2" d="M155,92 A44,44 0 0 1 155,172"/>
-              <path class="bigw3" d="M162,84 A56,56 0 0 1 162,180"/>
+              <path class="bigw1" d="M132,104 A30,30 0 0 1 132,160"/>
+              <path class="bigw2" d="M139,96 A40,40 0 0 1 139,168"/>
+              <path class="bigw3" d="M146,88 A50,50 0 0 1 146,176"/>
             </g>
 
-            <!-- 耳蝸 -->
+            <!-- 耳蝸（與右側電子耳圖形一致） -->
             <g>
-              <path d="M300,150 C300,112 272,88 238,88 C204,88 180,112 180,146 C180,178 204,198 232,198 C256,198 274,182 274,158 C274,138 260,124 241,124 C227,124 215,135 215,150 C215,161 223,169 234,169"
-                    fill="none" stroke="#D8CFB4" stroke-width="15" stroke-linecap="round"/>
-              <path d="M300,150 C300,112 272,88 238,88 C204,88 180,112 180,146 C180,178 204,198 232,198 C256,198 274,182 274,158 C274,138 260,124 241,124 C227,124 215,135 215,150 C215,161 223,169 234,169"
-                    fill="none" stroke="#F6F3E6" stroke-width="9" stroke-linecap="round"/>
-              <text x="238" y="222" text-anchor="middle" font-size="11.5" fill="#0F5887" font-weight="800">耳蝸</text>
+              <g transform="translate(154.68,171.47) scale(1) rotate(-73.93)">
+                <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79" fill="none" stroke="#D8CFB4" stroke-width="15" stroke-linecap="round"/>
+                <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79" fill="none" stroke="#F6F3E6" stroke-width="9" stroke-linecap="round"/>
+              </g>
+              <text x="238" y="228" text-anchor="middle" font-size="11.5" fill="#0F5887" font-weight="800">耳蝸</text>
 
-              <!-- 毛細胞（振動中）-->
-              <g class="hair dead"><rect x="203" y="103" width="3" height="8" rx="1.5" fill="#9AA5AE" transform="rotate(26 204 111)"/></g>
-              <g class="hair weak h2"><rect x="216" y="94" width="3" height="11" rx="1.5" fill="#0F5887"/></g>
-              <g class="hair dead"><rect x="230" y="96" width="3" height="6" rx="1.5" fill="#9AA5AE" transform="rotate(-34 231 102)"/></g>
-              <g class="hair weak h4"><rect x="244" y="92" width="3" height="11" rx="1.5" fill="#0F5887"/></g>
-              <g class="hair dead"><rect x="257" y="101" width="3" height="7" rx="1.5" fill="#9AA5AE" transform="rotate(30 258 108)"/></g>
-              <text x="230" y="74" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">毛細胞受損（必經）</text>
+              <!-- 毛細胞：多數受損，少數仍微弱擺動 -->
+              <g class="hair dead"><rect x="238" y="98" width="3" height="8" rx="1.5" fill="#9AA5AE" transform="rotate(14 239 102)"/></g>
+              <g class="hair weak h2"><rect x="176" y="140" width="3" height="11" rx="1.5" fill="#0F5887" transform="rotate(-46 177 145)"/></g>
+              <g class="hair dead"><rect x="190" y="184" width="3" height="8" rx="1.5" fill="#9AA5AE" transform="rotate(16 191 188)"/></g>
+              <g class="hair weak h4"><rect x="222" y="198" width="3" height="11" rx="1.5" fill="#0F5887" transform="rotate(66 223 203)"/></g>
+              <g class="hair dead"><rect x="256" y="164" width="3" height="8" rx="1.5" fill="#9AA5AE" transform="rotate(-64 257 168)"/></g>
+              <text x="240" y="58" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">毛細胞受損（必經）</text>
             </g>
 
             <!-- 必經路徑 → 聽神經 → 大腦 -->
-            <path class="flowline broken" d="M302,152 L352,152" fill="none" stroke="#0F5887" stroke-width="3.4" stroke-linecap="round"/>
-          <text x="327" y="173" text-anchor="middle" font-size="10" fill="#B0413E" font-weight="700">訊號斷斷續續</text>
+            <path class="flowline broken" d="M274,152 L352,152" fill="none" stroke="#0F5887" stroke-width="3.4" stroke-linecap="round"/>
+            <text x="313" y="172" text-anchor="middle" font-size="10" fill="#B0413E" font-weight="700">訊號斷斷續續</text>
             <g class="brain weak">
               <circle cx="386" cy="152" r="21" fill="#0F5887"/>
               <path d="M377,152 q5,-8 9,0 t9,0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
             </g>
             <text x="386" y="192" text-anchor="middle" font-size="11.5" fill="#0F5887" font-weight="800">大腦</text>
-            <text x="327" y="140" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">聽神經</text>
+            <text x="313" y="142" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">聽神經</text>
           </svg>
         </div>
 
@@ -1161,64 +1274,56 @@
             </g>
 
             <!-- 磁力線圈傳輸 -->
-            <line x1="130" y1="112" x2="130" y2="100" stroke="#0E9B81" stroke-width="2.5"/>
-            <circle cx="130" cy="94" r="8" fill="none" stroke="#0E9B81" stroke-width="2.5"/>
+            <path d="M130,112 C134,96 152,72 172,64" fill="none" stroke="#0E9B81" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="182" cy="60" r="8" fill="none" stroke="#0E9B81" stroke-width="2.5"/>
             <g fill="none" stroke="#0E9B81" stroke-width="2" stroke-linecap="round" opacity=".9">
-              <path class="coilpulse" d="M140,82 A18,18 0 0 1 140,110"/>
-              <path class="coilpulse c2" d="M146,76 A26,26 0 0 1 146,116"/>
-              <path class="coilpulse c3" d="M152,70 A34,34 0 0 1 152,122"/>
+              <path class="coilpulse" d="M194,50 A14,14 0 0 1 194,70"/>
+              <path class="coilpulse c2" d="M202,44 A20,20 0 0 1 202,76"/>
+              <path class="coilpulse c3" d="M210,38 A27,27 0 0 1 210,82"/>
             </g>
-            <circle cx="176" cy="94" r="9" fill="#0E9B81" opacity=".85"/>
-            <text x="176" y="72" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">植入體</text>
+            <!-- 植入體：位於耳蝸上方，不與耳蝸重疊 -->
+            <circle cx="240" cy="58" r="9" fill="#0E9B81" opacity=".85"/>
+            <text x="240" y="38" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">植入體</text>
 
-            <!-- 耳蝸 -->
+            <!-- 耳蝸（開口朝上，與剖面圖一致） -->
             <g>
-              <path d="M300,150 C300,112 272,88 238,88 C204,88 180,112 180,146 C180,178 204,198 232,198 C256,198 274,182 274,158 C274,138 260,124 241,124 C227,124 215,135 215,150 C215,161 223,169 234,169"
-                    fill="none" stroke="#D8CFB4" stroke-width="15" stroke-linecap="round"/>
-              <path d="M300,150 C300,112 272,88 238,88 C204,88 180,112 180,146 C180,178 204,198 232,198 C256,198 274,182 274,158 C274,138 260,124 241,124 C227,124 215,135 215,150 C215,161 223,169 234,169"
-                    fill="none" stroke="#F6F3E6" stroke-width="9" stroke-linecap="round"/>
-              <text x="238" y="222" text-anchor="middle" font-size="11.5" fill="#0E9B81" font-weight="800">耳蝸</text>
-
-              <!-- 毛細胞（受損：灰、不動、打叉）-->
-              <g opacity=".45">
-                <rect x="203" y="103" width="3" height="8" rx="1.5" fill="#9AA5AE" transform="rotate(24 204 111)"/>
-                <rect x="216" y="98" width="3" height="7" rx="1.5" fill="#9AA5AE" transform="rotate(-30 217 105)"/>
-                <rect x="230" y="96" width="3" height="6" rx="1.5" fill="#9AA5AE" transform="rotate(38 231 102)"/>
-                <rect x="244" y="97" width="3" height="7" rx="1.5" fill="#9AA5AE" transform="rotate(-22 245 104)"/>
-                <rect x="257" y="101" width="3" height="7" rx="1.5" fill="#9AA5AE" transform="rotate(28 258 108)"/>
-              </g>
-              <g opacity=".95">
-                <path d="M200,86 C220,66 254,66 274,82" fill="none" stroke="#B08D3F" stroke-width="2.6"
-                      stroke-linecap="round" stroke-dasharray="6 5"/>
-                <path d="M267,74 L275,83 L264,84" fill="none" stroke="#B08D3F" stroke-width="2.6"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="237" y="60" text-anchor="middle" font-size="11" fill="#B08D3F" font-weight="800">繞過受損毛細胞</text>
+              <g transform="translate(154.68,171.47) scale(1.0) rotate(-73.93)">
+                <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79" fill="none" stroke="#D8CFB4" stroke-width="15" stroke-linecap="round"/>
+                <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79" fill="none" stroke="#F6F3E6" stroke-width="9" stroke-linecap="round"/>
               </g>
 
-              <!-- 電極陣列（沿耳蝸）+ 放電點 -->
-              <path d="M179,102 C178,110 179,118 181,126" fill="none" stroke="#0E9B81" stroke-width="2.4" stroke-linecap="round"/>
-              <path d="M181,126 C180,134 180,140 180,146 C180,178 204,198 232,198 C256,198 274,182 274,158 C274,138 260,124 241,124 C227,124 215,135 215,150 C215,161 223,169 234,169"
-                    fill="none" stroke="#0E9B81" stroke-width="2.6" stroke-linecap="round"/>
-              <circle class="zapdot" cx="180" cy="148" r="3" fill="#FFC400"/>
-              <circle class="zapdot d2" cx="196" cy="184" r="3" fill="#FFC400"/>
-              <circle class="zapdot d3" cx="232" cy="198" r="3" fill="#FFC400"/>
-              <circle class="zapdot d4" cx="262" cy="187" r="3" fill="#FFC400"/>
-              <circle class="zapdot d5" cx="274" cy="158" r="3" fill="#FFC400"/>
-              <circle class="zapdot d3" cx="265" cy="134" r="3" fill="#FFC400"/>
-              <circle class="zapdot d2" cx="223" cy="131" r="3" fill="#FFC400"/>
-              <circle class="zapdot d4" cx="220" cy="164" r="3" fill="#FFC400"/>
-              <text x="243" y="152" text-anchor="middle" font-size="10.5" fill="#0E9B81" font-weight="800"
-                    stroke="#F6F3E6" stroke-width="3.2" paint-order="stroke">電極</text>
+              <!-- 毛細胞（受損：灰、不動）-->
+              <g opacity=".45" fill="#9AA5AE">
+                <rect x="178" y="148" width="3" height="8" rx="1.5" transform="rotate(-46 179 152)"/>
+                <rect x="192" y="188" width="3" height="8" rx="1.5" transform="rotate(16 193 192)"/>
+                <rect x="232" y="200" width="3" height="8" rx="1.5" transform="rotate(66 233 204)"/>
+                <rect x="258" y="162" width="3" height="8" rx="1.5" transform="rotate(-64 259 166)"/>
+              </g>
+
+              <!-- 電極：自開口垂直進入，順蝸軸盤到底 -->
+              <path d="M240,67 L240,90" fill="none" stroke="#0E9B81" stroke-width="2.6" stroke-linecap="round"/>
+              <g transform="translate(154.68,171.47) scale(1.0) rotate(-73.93)">
+                <path d="M100,60 C100,22 72,-2 38,-2 C4,-2 -20,22 -20,56 C-20,88 4,108 32,108 C56,108 74,92 74,68 C74,48 60,34 41,34 C27,34 15,45 15,60 C15,71 23,79 34,79" fill="none" stroke="#0E9B81" stroke-width="3.2" stroke-linecap="round"/>
+              </g>
+              <circle class="zapdot" cx="240.0" cy="92.0" r="3" fill="#FFC400"/>
+              <circle class="zapdot d2" cx="163.3" cy="134.4" r="3" fill="#FFC400"/>
+              <circle class="zapdot d3" cx="198.7" cy="141.5" r="3" fill="#FFC400"/>
+              <circle class="zapdot d4" cx="203.0" cy="206.2" r="3" fill="#FFC400"/>
+              <circle class="zapdot d5" cx="216.5" cy="173.7" r="3" fill="#FFC400"/>
+              <circle class="zapdot d2" cx="240.5" cy="119.2" r="3" fill="#FFC400"/>
+              <circle class="zapdot d3" cx="240.0" cy="160.7" r="3" fill="#FFC400"/>
+              <circle class="zapdot d4" cx="267.3" cy="170.6" r="3" fill="#FFC400"/>
+              <text x="238" y="228" text-anchor="middle" font-size="11" fill="#0E9B81" font-weight="800">耳蝸 · 電極陣列</text>
             </g>
 
             <!-- 直接刺激 → 聽神經 → 大腦 -->
-            <path class="flowline" d="M300,152 L352,152" fill="none" stroke="#0E9B81" stroke-width="3.4" stroke-linecap="round"/>
+            <path class="flowline" d="M274,152 L352,152" fill="none" stroke="#0E9B81" stroke-width="3.4" stroke-linecap="round"/>
             <g class="brain steady">
               <circle cx="386" cy="152" r="21" fill="#0E9B81"/>
               <path d="M377,152 q5,-8 9,0 t9,0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
             </g>
             <text x="386" y="192" text-anchor="middle" font-size="11.5" fill="#0E9B81" font-weight="800">大腦</text>
-            <text x="327" y="140" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">聽神經</text>
+            <text x="313" y="142" text-anchor="middle" font-size="10.5" fill="#5E6C76" font-weight="700">聽神經</text>
           </svg>
         </div>
       </div>
